@@ -196,6 +196,39 @@ a:active, a:focus, a:hover, a:visited {
   background-color: #098aa1;
 }
 
+/* Hide the mobile button by default and show the desktop button */
+.mobile-btn {
+  display: none;
+}
+
+.desktop-btn .btn_hotline {
+  background-color: #12989b;
+}
+
+/* Media query for screens with a max width of 768px (mobile devices) */
+@media (max-width: 768px) {
+  .desktop-btn {
+      display: none; /* Hide the desktop button on mobile */
+  }
+
+  .mobile-btn {
+      display: block; /* Show the mobile button on mobile */
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 1000;
+  }
+
+  .mobile-btn .btn_hotline {
+      background-color: #12989b; /* Same color as the desktop button */
+      padding: 10px 20px;
+      border-radius: 5px;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+  }
+}
+
 
 button {
   padding: 0px;
