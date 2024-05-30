@@ -4,6 +4,30 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Progressive Form</title>
+<link rel="shortcut icon" href="assets/images/site_logo/favourite_icon.svg">
+
+<!-- Framework - CSS Include -->
+<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+
+<!-- Icon Font - CSS Include -->
+<link rel="stylesheet" type="text/css" href="assets/css/fontawesome.min.css">
+
+<!-- Animation - CSS Include -->
+<link rel="stylesheet" type="text/css" href="assets/css/animate.min.css">
+
+<!-- Cursor - CSS Include -->
+<link rel="stylesheet" type="text/css" href="assets/css/cursor.min.css">
+
+<!-- Carousel - CSS Include -->
+<link rel="stylesheet" type="text/css" href="assets/css/slick.min.css">
+<link rel="stylesheet" type="text/css" href="assets/css/slick-theme.min.css">
+
+<!-- Video & Image Popup - CSS Include -->
+<link rel="stylesheet" type="text/css" href="assets/css/magnific-popup.min.css">
+
+<!-- Counter - CSS Include -->
+<link rel="stylesheet" type="text/css" href="assets/css/odometer.min.css">
+
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500&display=swap');
     body {
@@ -11,10 +35,6 @@
         margin: 0;
         padding: 0;
         background-color: #e8f5e9; /* Light green background */
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
     }
     .container {
         width: 100%;
@@ -23,6 +43,24 @@
         background-color: #fff;
         border-radius: 10px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        margin: 20px auto; /* Center the container */
+    }
+    .navbar {
+        background-color: #12989b;
+        padding: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: #fff;
+    }
+    .navbar a {
+        color: #fff;
+        text-decoration: none;
+        margin: 0 10px;
+        font-weight: bold;
+    }
+    .navbar a:hover {
+        text-decoration: underline;
     }
     .progress-bar {
         width: 100%;
@@ -83,18 +121,69 @@
     button:hover {
         background-color: #098aa1;
     }
+    header {
+        text-align: center;
+        padding: 50px 0;
+        background-color: #80b780;
+        color: #fff;
+    }
+    header h1 {
+        margin: 0;
+        font-size: 36px;
+    }
+    header p {
+        margin: 10px 0 0;
+        font-size: 18px;
+    }
+    footer {
+        background-color: #12989b;
+        color: #fff;
+        padding: 20px 0;
+        text-align: center;
+    }
+    footer .footer-links {
+        margin: 20px 0;
+    }
+    footer .footer-links a {
+        color: #fff;
+        margin: 0 10px;
+        text-decoration: none;
+    }
+    footer .footer-links a:hover {
+        text-decoration: underline;
+    }
+    footer .social_links a {
+        color: #fff;
+        margin: 0 10px;
+    }
+    footer .social_links a:hover {
+        color: #eee;
+    }
+    .footer-logo img {
+        max-width: 150px;
+        margin-bottom: 20px;
+    }
 </style>
 </head>
 <body>
-    
+<div class="navbar" style="background-image: url('https://images3.alphacoders.com/132/1323579.png'); background-size: cover;">
+    <div class="navbar-brand">
+        <img src="https://trueguidancehub.com/wp-content/uploads/2023/09/TRUE-GUIDANCE-UGANDA-LOGO.png" alt="Site Logo" style="border-radius: 4px; background-color: white; height: 80px; width: 130px;">
+    </div>
+    <div class="navbar-links">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+        <a href="#login">Login</a>
+    </div>
+</div>
+<header>
+    <h1>Welcome to Our Service</h1>
+    <p>Connecting you with professional therapists</p>
+</header>
 <div class="container" style="background-image: url('https://images5.alphacoders.com/132/1323577.png'); background-size: cover;">
     <div style="background-color: #80b780; border-radius: 10px; padding: 20px; margin-bottom: 20px; color: rgb(62, 58, 58); font-family: 'Outfit', sans-serif;">
-        <h2 style="color: rgb(80, 74, 74);">Welcome to this fill out form</h2>
-        <h4 style="color: rgb(80, 74, 74);">
-            Help us connect you to a professional therapist.
-            <br>
-            Fill out the form accurately and we will get you sorted immediately
-        </h4>
+        <h2 style="color: rgb(51, 49, 49);">Welcome to this fill out form</h2>
     </div>
     <div class="progress-bar">
         <div class="progress" style="width: 0;"></div>
@@ -115,8 +204,7 @@
             <button type="button" onclick="nextStep()">Next</button>
         </div>
         <div class="step">
-            <h2>what type of therapy are you looking for?</h2>
-           
+            <h2>What type of therapy are you looking for?</h2>
             <button type="button" onclick="nextStep()">Teen </button>
             <button type="button" onclick="nextStep()">Individual</button>
             <button type="button" onclick="nextStep()">Couples </button>
@@ -125,7 +213,6 @@
         </div>
         <div class="step">
             <h2>How do you identify?</h2>
-           
             <button type="button" onclick="nextStep()">Straight </button>
             <button type="button" onclick="nextStep()">Gay</button>
             <button type="button" onclick="nextStep()">Bi or Pan </button>
@@ -136,7 +223,6 @@
         </div>
         <div class="step">
             <h2>What is your relationship status?</h2>
-           
             <button type="button" onclick="nextStep()">Single</button>
             <button type="button" onclick="nextStep()">Married</button>
             <button type="button" onclick="nextStep()">Divorced </button>
@@ -147,349 +233,114 @@
         </div>
         <div class="step">
             <h2>Do you consider yourself religious?</h2>
-           
             <button type="button" onclick="nextStep()">Yes </button>
             <button type="button" onclick="nextStep()">No</button>
             <br>
             <button type="button" onclick="prevStep()">Previous</button>
-            
         </div>
         <div class="step">
-            <h2>Whats your religion?</h2>
-           
-            <button type="button" onclick="nextStep()">Christianity </button>
+            <h2>What is your religion?</h2>
+            <button type="button" onclick="nextStep()">Hinduism</button>
+            <button type="button" onclick="nextStep()">Christianity</button>
             <button type="button" onclick="nextStep()">Islam</button>
-            <button type="button" onclick="nextStep()">Judaism </button>
-            <button type="button" onclick="nextStep()">Others </button>
+            <button type="button" onclick="nextStep()">Buddhism </button>
+            <button type="button" onclick="nextStep()">Other</button>
             <br>
             <button type="button" onclick="prevStep()">Previous</button>
         </div>
         <div class="step">
-            <h2>Would you love a therapist thats religious?</h2>
-           
-            <button type="button" onclick="nextStep()">Yes </button>
-            <button type="button" onclick="nextStep()">No</button>
+            <h2>When would you prefer to start your therapy?</h2>
+            <button type="button" onclick="nextStep()">Immediate</button>
+            <button type="button" onclick="nextStep()">Later</button>
             <br>
             <button type="button" onclick="prevStep()">Previous</button>
         </div>
         <div class="step">
-            <h2>Are you religious?</h2>
-           
-            <button type="button" onclick="nextStep()">Yes </button>
+            <h2>Preferred session day?</h2>
+            <button type="button" onclick="nextStep()">Monday</button>
+            <button type="button" onclick="nextStep()">Tuesday</button>
+            <button type="button" onclick="nextStep()">Wednesday</button>
+            <button type="button" onclick="nextStep()">Thursday</button>
+            <button type="button" onclick="nextStep()">Friday</button>
+            <button type="button" onclick="nextStep()">Saturday</button>
+            <button type="button" onclick="nextStep()">Sunday</button>
+            <br>
+            <button type="button" onclick="prevStep()">Previous</button>
+        </div>
+        <div class="step">
+            <h2>What is your monthly income?</h2>
+            <button type="button" onclick="nextStep()">less than 25k</button>
+            <button type="button" onclick="nextStep()">50k-75k</button>
+            <button type="button" onclick="nextStep()">100k-150k</button>
+            <button type="button" onclick="nextStep()">200k-250k</button>
+            <button type="button" onclick="nextStep()">Other</button>
+            <br>
+            <button type="button" onclick="prevStep()">Previous</button>
+        </div>
+        <div class="step">
+            <h2>Do you have any preexisting medical conditions?</h2>
+            <button type="button" onclick="nextStep()">Yes</button>
             <button type="button" onclick="nextStep()">No</button>
             <br>
             <button type="button" onclick="prevStep()">Previous</button>
         </div>
         <div class="step">
             <h2>Have you been in therapy before?</h2>
-           
-            <button type="button" onclick="nextStep()">Yes </button>
+            <button type="button" onclick="nextStep()">Yes</button>
             <button type="button" onclick="nextStep()">No</button>
             <br>
             <button type="button" onclick="prevStep()">Previous</button>
         </div>
         <div class="step">
-            <h2>what led you to consider therapy today?</h2>
-            <label>
-                <input type="checkbox">
-                <h4>I need to talk to someone</h4>
-            </label>
-            <label>
-                <input type="checkbox">
-                <h4>I want to gain self-esteem</h4>
-            </label>
-            <label>
-                <input type="checkbox">
-                <h4>I have anger issues</h4>
-            </label>
-            <label>
-                <input type="checkbox">
-                <h4>I need help with my marriage</h4>
-            </label>
-            <label>
-                <input type="checkbox">
-                <h4>I need to learn how to handle my ADHD better</h4>
-            </label>
-            <label>
-                <input type="checkbox">
-                <h4>I feel anxious and overwhelmed</h4>
-            </label>
-            <label>
-                <input type="checkbox">
-                <h4>I struggle with addiction</h4>
-            </label>
-            <label>
-                <input type="checkbox">
-                <h4>Others</h4>
-            </label>
-            <button type="button" onclick="nextStep()">Next</button>
+            <h2>What is the main reason you are seeking therapy?</h2>
+            <input type="text" placeholder="Reason">
+            <button type="submit">Submit</button>
             <button type="button" onclick="prevStep()">Previous</button>
-        </div>
-        <div class="step">
-            <h2>what are your expections from this therapist? A therapist that ...</h2>
-            <label>
-                <input type="checkbox">
-                <h4>Listens</h4>
-            </label>
-            <label>
-                <input type="checkbox">
-                <h4>Challenges my beliefs</h4>
-            </label>
-            <label>
-                <input type="checkbox">
-                <h4>Teaches me something new</h4>
-            </label>
-            <label>
-                <input type="checkbox">
-                <h4>Guides me all the steps of the way</h4>
-            </label>
-            <label>
-                <input type="checkbox">
-                <h4>Proactively checks on me</h4>
-            </label>
-            <label>
-                <input type="checkbox">
-                <h4>Guides me to set goals</h4>
-            </label>
-            <label>
-                <input type="checkbox">
-                <h4>Others</h4>
-            </label>
-            
-            <button type="button" onclick="nextStep()">Next</button>
-            <button type="button" onclick="prevStep()">Previous</button>
-            
-        </div>
-        <div class="step">
-            <h2>How do you rate your current physical health?</h2>
-           
-            <button type="button" onclick="nextStep()">Good </button>
-            <button type="button" onclick="nextStep()">Fair</button>
-            <button type="button" onclick="nextStep()">Poor</button>
-            <br>
-            <button type="button" onclick="prevStep()">Previous</button>
-        </div>
-        <div class="step">
-            <h2>How do you rate your current eating habits?</h2>
-            <button type="button" onclick="nextStep()">I overeat </button>
-            <button type="button" onclick="nextStep()">Good </button>
-            <button type="button" onclick="nextStep()">Fair</button>
-            <button type="button" onclick="nextStep()">Poor</button>
-            <br>
-            <button type="button" onclick="prevStep()">Previous</button>
-        </div>
-        <div class="step">
-            <h2>Are you experiencing any feelings of depression, sadness, grief, anxiety?</h2>
-           
-            <button type="button" onclick="nextStep()">Yes </button>
-            <button type="button" onclick="nextStep()">No</button>
-            <br>
-            <button type="button" onclick="prevStep()">Previous</button>
-        </div>
-        <div class="step">
-            <h2>Have you noticed a drop in interest or pleasure doing things in the last two weeks?</h2>
-           
-            <button type="button" onclick="nextStep()">Yes </button>
-            <button type="button" onclick="nextStep()">No</button>
-            <br>
-            <button type="button" onclick="prevStep()">Previous</button>
-        </div>
-        <div class="step">
-            <h2>Have you had trouble falling asleep in the past two weeks?</h2>
-           
-            <button type="button" onclick="nextStep()">Several nights </button>
-            <button type="button" onclick="nextStep()">Not at all</button>
-            <button type="button" onclick="nextStep()">More than half of the days</button>
-            <br>
-            <button type="button" onclick="prevStep()">Previous</button>
-        </div>
-        <div class="step">
-            <h2>Have you had any suicidal thoughts in the last two weeks?</h2>
-           
-            <button type="button" onclick="nextStep()">Yes </button>
-            <button type="button" onclick="nextStep()">No</button>
-            <br>
-            <button type="button" onclick="prevStep()">Previous</button>
-        </div>
-        <div class="step">
-            <h2>Have these thoughts made it easy or hard for you to deal with work and stuff at home ?</h2>
-           
-            <button type="button" onclick="nextStep()">Not difficult at all </button>
-            <button type="button" onclick="nextStep()">Somehow difficult</button>
-            <button type="button" onclick="nextStep()">Extremely difficult</button>
-            <br>
-            <button type="button" onclick="prevStep()">Previous</button>
-        </div>
-        <div class="step">
-            <h2>Are you curently employed?</h2>
-           
-            <button type="button" onclick="nextStep()">Yes </button>
-            <button type="button" onclick="nextStep()">No</button>
-            <br>
-            <button type="button" onclick="prevStep()">Previous</button>
-        </div>
-        <div class="step">
-            <h2>Do you have any problems or worries about intimacy?</h2>
-           
-            <button type="button" onclick="nextStep()">Yes </button>
-            <button type="button" onclick="nextStep()">No</button>
-            <br>
-            <button type="button" onclick="prevStep()">Previous</button>
-        </div>
-        <div class="step">
-            <h2>How often do you drink alcohol ?</h2>
-           
-            <button type="button" onclick="nextStep()">Never </button>
-            <button type="button" onclick="nextStep()">Infrequently </button>
-            <button type="button" onclick="nextStep()">Montly</button>
-            <button type="button" onclick="nextStep()">weekly</button>
-            <button type="button" onclick="nextStep()">daily</button>
-            <br>
-            <button type="button" onclick="prevStep()">Previous</button>
-        </div>
-        <div class="step">
-            <h2>When did you last think about suicide ?</h2>
-           
-            <button type="button" onclick="nextStep()">Never </button>
-            <button type="button" onclick="nextStep()">A year ago </button>
-            <button type="button" onclick="nextStep()">Last week</button>
-            <button type="button" onclick="nextStep()">Last month</button>
-            <button type="button" onclick="nextStep()">Yesterday</button>
-            <button type="button" onclick="nextStep()">Today</button>
-            <br>
-            <button type="button" onclick="prevStep()">Previous</button>
-        </div>
-        <div class="step">
-            <h2>Are you currently on any medication?</h2>
-           
-            <button type="button" onclick="nextStep()">Yes </button>
-            <button type="button" onclick="nextStep()">No</button>
-            <br>
-            <button type="button" onclick="prevStep()">Previous</button>
-        </div>
-        <div class="step">
-            <h2>Are you currently experiencing any chronic pain?</h2>
-           
-            <button type="button" onclick="nextStep()">Yes </button>
-            <button type="button" onclick="nextStep()">No</button>
-            <br>
-            <button type="button" onclick="prevStep()">Previous</button>
-        </div>
-        <div class="step">
-            <h2>How do you rate your current financial status?</h2>
-           
-            <button type="button" onclick="nextStep()">Good </button>
-            <button type="button" onclick="nextStep()">Fair</button>
-            <button type="button" onclick="nextStep()">Poor</button>
-            <br>
-            <button type="button" onclick="prevStep()">Previous</button>
-        </div>
-        <div class="step">
-            <h2>Which of these resources would be useful for you...</h2>
-            <label>
-                <input type="checkbox">
-                <h4>Suport groups</h4>
-            </label>
-            <label>
-                <input type="checkbox">
-                <h4>Therapy journal</h4>
-            </label>
-            <label>
-                <input type="checkbox">
-                <h4>Goal setting</h4>
-            </label>
-            <label>
-                <input type="checkbox">
-                <h4>Educational webinars</h4>
-            </label>
-            <label>
-                <input type="checkbox">
-                <h4>Others</h4>
-            </label>
-            
-            <button type="button" onclick="nextStep()">Next</button>
-            <button type="button" onclick="prevStep()">Previous</button>
-            
-        </div>
-        <div class="step">
-            <h2>How do you prefer to communicate to your therapist?</h2>
-           
-            <button type="button" onclick="nextStep()">Gmail </button>
-            <button type="button" onclick="nextStep()">Whatsapp</button>
-            <button type="button" onclick="nextStep()">Phone calls</button>
-            <button type="button" onclick="nextStep()">Via Video calls </button>
-            <button type="button" onclick="nextStep()">Not sure yet </button>
-  
-            <br>
-            <button type="button" onclick="prevStep()">Previous</button>
-        </div>
-        <div class="step">
-            <h2>Are there any specific preferences for your therapist</h2>
-            <label>
-                <input type="checkbox">
-                <h4>Male</h4>
-            </label>
-            <label>
-                <input type="checkbox">
-                <h4>Female</h4>
-            </label>
-            <label>
-                <input type="checkbox">
-                <h4>Religious</h4>
-            </label>
-            <label>
-                <input type="checkbox">
-                <h4>Non-Religious</h4>
-            </label>
-            <label>
-                <input type="checkbox">
-                <h4>Old 40+</h4>
-            </label>
-            <label>
-                <input type="checkbox">
-                <h4>Therapist from the LGBTQ community</h4>
-            </label>
-            
-            <button type="button" onclick="nextStep()">Next</button>
-            <button type="button" onclick="prevStep()">Previous</button>
-            
         </div>
     </form>
 </div>
+<footer style="background-image: url('https://images3.alphacoders.com/132/1323579.png'); background-size: cover;">
+    <div class="footer-logo" >
+        <img src="https://trueguidancehub.com/wp-content/uploads/2023/09/TRUE-GUIDANCE-UGANDA-LOGO.png" alt="Site Logo" style="background-color: white; height: 100px; width: 160px; border-radius: 4px;">
+    </div>
+    <div class="footer-links">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+        <a href="#privacy">Privacy Policy</a>
+        <a href="#terms">Terms of Service</a>
+    </div>
+    <div class="social_links">
+        <a href="https://www.facebook.com/yourpage" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://twitter.com/yourpage" target="_blank"><i class="fab fa-twitter"></i></a>
+        <a href="https://www.instagram.com/yourpage" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.linkedin.com/yourpage" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+    </div>
+    <p>&copy; 2024 True guidance. All rights reserved.</p>
+</footer>
 <script>
     let currentStep = 0;
-    const form = document.getElementById('progressive-form');
-    const progressBar = document.querySelector('.progress');
     const steps = document.querySelectorAll('.step');
-    const numSteps = steps.length;
-
-    function updateProgress() {
-        const progress = (currentStep + 1) / numSteps * 100;
-        progressBar.style.width = `${progress}%`;
-    }
+    const progress = document.querySelector('.progress');
 
     function nextStep() {
-        if (currentStep < numSteps - 1) {
-            steps[currentStep].classList.remove('active');
-            currentStep++;
-            steps[currentStep].classList.add('active');
-            updateProgress();
-        }
+        steps[currentStep].classList.remove('active');
+        currentStep++;
+        steps[currentStep].classList.add('active');
+        updateProgress();
     }
 
     function prevStep() {
-        if (currentStep > 0) {
-            steps[currentStep].classList.remove('active');
-            currentStep--;
-            steps[currentStep].classList.add('active');
-            updateProgress();
-        }
+        steps[currentStep].classList.remove('active');
+        currentStep--;
+        steps[currentStep].classList.add('active');
+        updateProgress();
     }
 
-    form.addEventListener('submit', function(event) {
-        event.preventDefault();
-        alert('Form submitted successfully!');
-    });
+    function updateProgress() {
+        const progressPercent = (currentStep / (steps.length - 1)) * 100;
+        progress.style.width = progressPercent + '%';
+    }
 </script>
 </body>
 </html>
