@@ -169,8 +169,10 @@
           </div>
         </section>
         <!-- Page Banner - End
+          <div id="contact-form-container"></div>
+      </section>
         ================================================== -->
-
+      
         <!-- Contact Section - Start
         ================================================== -->
         <section class="contact_section section_space_lg" style="background-image: url('https://static.vecteezy.com/system/resources/thumbnails/011/426/071/small_2x/aesthetic-white-and-green-background-with-space-for-text-modern-background-design-with-liquid-shape-white-background-with-green-liquid-shapes-free-vector.jpg'); background-size: cover;">
@@ -367,22 +369,34 @@
     <script src="assets/js/popper.min.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>
     <script src="assets/js/bootstrap-dropdown-ml-hack.min.js"></script>
-
-    <!-- animation - jquery include -->
+    <!-- Animation - Jquery Include -->
     <script src="assets/js/cursor.min.js"></script>
-
     <!-- Carousel - Jquery Include -->
     <script src="assets/js/slick.min.js"></script>
-
     <!-- Video & Image Popup - Jquery Include -->
     <script src="assets/js/magnific-popup.min.js"></script>
-    
     <!-- Counter - Jquery Include -->
     <script src="assets/js/appear.min.js"></script>
     <script src="assets/js/odometer.min.js"></script>
-
     <!-- Custom - Jquery Include -->
     <script src="assets/js/main.js"></script>
+    <!-- React CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/17.0.2/umd/react.production.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/17.0.2/umd/react-dom.production.min.js"></script>
+    
+    <!-- Import your ContactForm component -->
+    <script src="components/ContactForm.js"></script>
+
+    <!-- Script to render React component -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+          // Render ContactForm component once the DOM is fully loaded
+          ReactDOM.render(
+              React.createElement(ContactForm),
+              document.getElementById('contact-form-container')
+          );
+      });
+  </script>
 
   </body>
 </html>

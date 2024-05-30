@@ -128,7 +128,7 @@
                 </li>
                 <li>
                   
-                  <a class="btn_hotline" href="/">
+                  <a class="btn_hotline" href="/progressive.html">
                     <!-- <span class="btn_icon">
                       <i class="fa-solid fa-phone"></i>
                     </span> -->
@@ -963,7 +963,10 @@ Mental health refers to a person's emotional, psychological, and social well-bei
         </section>
         <!-- FAQ Section - End
         ================================================== -->
-
+        ================================================== -->
+        <section class="contact_section section_space_lg">
+          <div id="contact-form-container"></div>
+      </section>
         <!-- Contact Section - Start
         ================================================== -->
         <section class="contact_section section_space_lg">
@@ -1134,6 +1137,21 @@ Mental health refers to a person's emotional, psychological, and social well-bei
 
     <!-- Custom - Jquery Include -->
     <script src="assets/js/main.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/17.0.2/umd/react.production.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/17.0.2/umd/react-dom.production.min.js"></script>
+    
+    <!-- Import your ContactForm component -->
+    <script src="components/ContactForm.js"></script>
+
+    <!-- Script to render React component -->
+    <script>
+        // Render ContactForm component
+        ReactDOM.render(
+            React.createElement(ContactForm),
+            document.getElementById('contact-form-container')
+        );
+    </script>
 
   </body>
 </html>
