@@ -179,6 +179,24 @@ a:active, a:focus, a:hover, a:visited {
   text-decoration: none;
 }
 
+.btn_hotline {
+  background-color: #12989b;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  text-align: center;
+  display: inline-block;
+  text-decoration: none;
+}
+
+.btn_hotline:hover {
+  background-color: #098aa1;
+}
+
+
 button {
   padding: 0px;
   border: none;
@@ -3484,6 +3502,8 @@ Responsive For Mobile & Tablet Devices
   .header_btns_group > li:first-child {
     display: inline-block;
   }
+
+
   .main_menu {
     left: 0;
     right: 0;
