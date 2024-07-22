@@ -320,7 +320,7 @@
         <div class="step">
             <h2>What is your major reason for therapy?</h2>
             <input type="text" placeholder="describe">
-            <button type="submit" onclick="nextStep()">Submit</button>
+            <button type="button" id="submitBtn" onclick="redirectToLogin()">Submit</button>
             <button type="button" onclick="prevStep()">Previous</button>
         </div>
     </form>
@@ -346,27 +346,44 @@
 </footer>
 <script>
     let currentStep = 0;
-    const steps = document.querySelectorAll('.step');
-    const progress = document.querySelector('.progress');
+    const steps = document.querySelectorAll(".step");
+    const progress = document.querySelector(".progress");
+
+    function updateProgressBar() {
+        const progressPercentage = (currentStep / (steps.length - 1)) * 100;
+        progress.style.width = progressPercentage + "%";
+    }
+
+    function redirectToLogin() {
+            window.location.href = 'login.html';
+        }
+
+
+    function showStep() {
+        steps.forEach((step, index) => {
+            step.classList.toggle("active", index === currentStep);
+        });
+        updateProgressBar();
+    }
 
     function nextStep() {
-        steps[currentStep].classList.remove('active');
-        currentStep++;
-        steps[currentStep].classList.add('active');
-        updateProgress();
+        if (currentStep < steps.length - 1) {
+            currentStep++;
+            showStep();
+        }
     }
 
     function prevStep() {
-        steps[currentStep].classList.remove('active');
-        currentStep--;
-        steps[currentStep].classList.add('active');
-        updateProgress();
+        if (currentStep > 0) {
+            currentStep--;
+            showStep();
+        }
     }
 
-    function updateProgress() {
-        const progressPercent = (currentStep / (steps.length - 1)) * 100;
-        progress.style.width = progressPercent + '%';
-    }
+    showStep(); // Initialize the form display
+
+    // Redirect to the login page on submit
+    ;
 </script>
 </body>
 </html>

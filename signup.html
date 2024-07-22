@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Signup</title>
+  <link rel="stylesheet" href="styles/Login.css">
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 90vh;
+      width: 100%;
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+    }
+
+    .log {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 90vh;
+      width: 100%;
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+    }
+
+    .form-intro {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .form-intro h2 {
+      font-size: 2rem;
+      margin-top: 0;
+      margin-bottom: 5px;
+    }
+
+    .form-intro img {
+      height: 80px; /* Adjust as needed */
+      width: auto;
+    }
+
+    #signupForm {
+      width: 80%;
+      max-width: 400px; /* Adjust as needed */
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    .label-desc {
+      margin-bottom: 5px;
+    }
+
+    .input-field {
+      width: 100%;
+      padding: 10px;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    .create-btn {
+      width: 100%;
+      padding: 12px;
+      font-size: 1.1rem;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .create-btn:hover {
+      background-color: #45a049;
+    }
+
+    .login-btn {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .login-btn:hover {
+      background-color: #0056b3;
+    }
+
+    footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 10px 0;
+    }
+
+    footer a {
+      color: white;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+
+    .footer-logo img {
+      height: 50px;
+      width: auto;
+    }
+
+    .social_links {
+      margin-top: 10px;
+    }
+
+    .social_links a {
+      color: white;
+      margin: 0 5px;
+    }
+  </style>
+</head>
+<body>
+    <div class="log">
+        <div class="form-intro">
+            
+          <form id="signupForm" style="width: 80%; display: flex; flex-direction: column; gap: 18px; margin-bottom: 18px;">
+            <div id="message" class="message"></div>
+            <div class="form-group">
+              <div class="label-desc">
+                <label for="fullName">Full name</label>
+              </div>
+              <input type="text" id="fullName" name="fullName" placeholder="Enter your full name" class="input-field" required>
+            </div>
+            <div class="form-group">
+              <div class="label-desc">
+                <label for="email">Email Address</label>
+              </div>
+              <input type="email" id="email" name="email" placeholder="Enter your email address" class="input-field" required>
+            </div>
+            <button type="submit" class="create-btn" id="submitButton">Create an account</button>
+            <p>
+                Already have an account?
+                <button onclick="navigateToLogin()" class="login-btn">Login here</button>
+              </p>
+          </form>
+          
+    </div>
+  
+
+  <footer>
+    <div class="footer-logo">
+      <img src="https://trueguidancehub.com/wp-content/uploads/2023/09/TRUE-GUIDANCE-UGANDA-LOGO.png" alt="Logo">
+    </div>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="login.html">Login</a>
+    </div>
+    <div class="social_links">
+      <a href="#"><i class="fa fa-facebook"></i></a>
+      <a href="#"><i class="fa fa-twitter"></i></a>
+      <a href="#"><i class="fa fa-linkedin"></i></a>
+      <a href="#"><i class="fa fa-instagram"></i></a>
+    </div>
+    <p>&copy; 2023 Your Company. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const form = document.getElementById('signupForm');
+    const messageDiv = document.getElementById('message');
+    const submitButton = document.getElementById('submitButton');
+
+    form.addEventListener('submit', async function(event) {
+      event.preventDefault();
+      submitButton.disabled = true;
+      submitButton.textContent = 'Creating account.......';
+
+      const fullName = document.getElementById('fullName').value;
+      const email = document.getElementById('email').value;
+
+      try {
+        const response = await fetch(`${YOUR_API_URL}/RegisterUser`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ fullName, email }),
+        });
+
+        if (response.ok) {
+          sessionStorage.setItem("useremail", email);
+          navigateToVerify();
+        } else {
+          const errorMessage = await response.text();
+          showMessage(`Error: ${errorMessage}`, true);
+        }
+      } catch (error) {
+        showMessage(`Error: ${error.message}`, true);
+      } finally {
+        submitButton.disabled = false;
+        submitButton.textContent = 'Create an account';
+      }
+    });
+
+    function showMessage(message, isError) {
+      messageDiv.textContent = message;
+      messageDiv.className = `message ${isError ? 'error-message' : 'success-message'}`;
+    }
+
+    function navigateToLogin() {
+      window.location.href = 'login.html';
+    }
+
+    function navigateToVerify() {
+      window.location.href = 'verify.html';
+    }
+  </script>
+</body>
+</html>
