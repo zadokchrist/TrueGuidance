@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Therapy Dashboard</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    .card {
+      background-color: #fff;
+      border-radius: 0.5rem;
+      box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card-header {
+      background-color: #f0f4f8;
+      border-bottom: 1px solid #e4e7eb;
+      border-top-left-radius: 0.5rem;
+      border-top-right-radius: 0.5rem;
+      padding: 1rem;
+    }
+
+    .card-body {
+      padding: 1rem;
+    }
+
+    .card-title {
+      font-size: 1.25rem;
+      font-weight: bold;
+      color: #333;
+      margin-bottom: 0.5rem;
+    }
+
+    .card-text {
+      color: #666;
+      line-height: 1.5;
+    }
+  </style>
+</head>
+
+<body class="bg-gray-100">
+
+  <div class="min-h-screen">
+
+    <!-- Navbar -->
+    <nav class="bg-green-700">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="flex h-16 items-center justify-between">
+
+          <!-- Logo -->
+          <div class="flex-shrink-0">
+            <img class="h-8 w-8" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500" alt="Your Company">
+          </div>
+
+          <!-- Desktop Menu -->
+          <div class="hidden md:block">
+            <div class="ml-10 flex items-baseline space-x-4">
+              <a href="dashboard.html" class="rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white" aria-current="page">Dashboard</a>
+              <a href="appointments.html" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Appointments</a>
+              <a href="clients.html" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Clients</a>
+              <a href="payments.html" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Payments</a>
+              <a href="reports.html" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Reports</a>
+            </div>
+          </div>
+
+          <!-- Mobile Menu -->
+          <div class="md:hidden">
+            <button type="button" class="bg-gray-800 p-2 rounded-md text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800" aria-controls="mobile-menu" aria-expanded="false">
+              <span class="sr-only">Open main menu</span>
+              <svg class="block h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile Menu (hidden by default) -->
+      <div class="md:hidden" id="mobile-menu">
+        <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+          <a href="dashboard.html" class="block px-3 py-2 rounded-md bg-gray-900 text-white text-base font-medium" aria-current="page">Dashboard</a>
+          <a href="appointments.html" class="block px-3 py-2 rounded-md text-gray-300 hover:bg-gray-700 hover:text-white text-base font-medium">Appointments</a>
+          <a href="clients.html" class="block px-3 py-2 rounded-md text-gray-300 hover:bg-gray-700 hover:text-white text-base font-medium">Clients</a>
+          <a href="payments.html" class="block px-3 py-2 rounded-md text-gray-300 hover:bg-gray-700 hover:text-white text-base font-medium">Payments</a>
+          <a href="reports.html" class="block px-3 py-2 rounded-md text-gray-300 hover:bg-gray-700 hover:text-white text-base font-medium">Reports</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="bg-white shadow">
+      <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
+        <h1 class="text-3xl font-bold text-gray-900">TrueGuidanceHub Dashboard</h1>
+      </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main>
+      <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+
+        <!-- Card 1 -->
+        <div class="card">
+          <div class="card-header">
+            <h2 class="card-title">Appointments Today</h2>
+          </div>
+          <div class="card-body">
+            <p class="card-text">You have 3 appointments scheduled for today.</p>
+            <a href="appointments.html" class="text-indigo-600 hover:text-indigo-900">View details</a>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="card">
+          <div class="card-header">
+            <h2 class="card-title">Upcoming Appointments</h2>
+          </div>
+          <div class="card-body">
+            <p class="card-text">You have 5 appointments scheduled in the next week.</p>
+            <a href="#" class="text-indigo-600 hover:text-indigo-900">View details</a>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="card">
+          <div class="card-header">
+            <h2 class="card-title">Client Stats</h2>
+          </div>
+          <div class="card-body">
+            <p class="card-text">You have 20 active clients.</p>
+            <a href="clients.html" class="text-indigo-600 hover:text-indigo-900">View details</a>
+          </div>
+        </div>
+
+        <!-- Card 4 (For demonstration, you can add more cards as needed) -->
+        <div class="card">
+          <div class="card-header">
+            <h2 class="card-title">Revenue Overview</h2>
+          </div>
+          <div class="card-body">
+            <p class="card-text">This month's revenue is $10,000.</p>
+            <a href="reports.html" class="text-indigo-600 hover:text-indigo-900">View details</a>
+          </div>
+        </div>
+
+      </div>
+    </main>
+
+  </div>
+
+</body>
+
+</html>
