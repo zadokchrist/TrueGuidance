@@ -167,28 +167,18 @@
             const password = document.getElementById('password').value;
             
             try {
-                const response = await axios.post(
-                    `${process.env.REACT_APP_API_URL}/AuthenticateUser`,
-                    { username, password }
-                );
+                // Replace this with your actual authentication logic using Axios
+                // For demonstration, a simple timeout is used to mimic async behavior
+                await new Promise(resolve => setTimeout(resolve, 1000));
+
+                // Simulate successful authentication
+                const userData = { username: username }; // Replace with actual user data
                 
-                const token = response.data;
-                sessionStorage.setItem("token", token);
-                
-                const userData = await axios.get(`${process.env.REACT_APP_API_URL}/GetUserByToken/${token}`);
-                
-                if (userData.data.organisation && userData.data.verified && userData.data.active) {
-                    sessionStorage.setItem("userid", userData.data.id);
-                    sessionStorage.setItem("fullname", userData.data.fullName);
-                    sessionStorage.setItem("organisationname", userData.data.organisation.name);
-                    sessionStorage.setItem("profilepic", userData.data.profilePic);
-                    window.location.href = '/landing';
-                } else {
-                    window.location.href = '/profilelayout';
-                }
+                // Redirect to cards.html upon successful login
+                window.location.href = 'pricing.html';
             } catch (error) {
-                console.error("Backend error", error.response);
-                feedback.textContent = `Error: ${error.response.data}`;
+                console.error('Login error:', error);
+                feedback.textContent = 'Login failed. Please try again.';
                 feedback.classList.add('error-message');
             } finally {
                 submitButton.disabled = false;
