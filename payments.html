@@ -71,7 +71,7 @@
 
           <!-- Mobile Menu -->
           <div class="md:hidden">
-            <button type="button" class="bg-gray-800 p-2 rounded-md text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800" aria-controls="mobile-menu" aria-expanded="false">
+            <button type="button" id="mobile-menu-button" class="bg-gray-800 p-2 rounded-md text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800" aria-controls="mobile-menu" aria-expanded="false">
               <span class="sr-only">Open main menu</span>
               <svg class="block h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
@@ -104,9 +104,6 @@
     <main>
       <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
 
-        <!-- Card 1 -->
-       
-
         <!-- Card 2 -->
         <div class="card">
           <div class="card-header">
@@ -114,17 +111,53 @@
           </div>
           <div class="card-body">
             <p class="card-text">This section will have a table of all payments made.</p>
-            
+            <!-- Example table structure -->
+            <div class="overflow-x-auto">
+              <table class="table-auto border-collapse w-full">
+                <thead>
+                  <tr class="bg-gray-200">
+                    <th class="px-4 py-2 border">Date</th>
+                    <th class="px-4 py-2 border">Client</th>
+                    <th class="px-4 py-2 border">Amount</th>
+                    <th class="px-4 py-2 border">Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="px-4 py-2 border">2023-07-01</td>
+                    <td class="px-4 py-2 border">John Doe</td>
+                    <td class="px-4 py-2 border">$120.00</td>
+                    <td class="px-4 py-2 border">Paid</td>
+                  </tr>
+                  <tr>
+                    <td class="px-4 py-2 border">2023-07-03</td>
+                    <td class="px-4 py-2 border">Jane Smith</td>
+                    <td class="px-4 py-2 border">$80.00</td>
+                    <td class="px-4 py-2 border">Paid</td>
+                  </tr>
+                  <!-- Add more rows as needed -->
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
-
-
-       
 
       </div>
     </main>
 
   </div>
+
+  <!-- JavaScript for Mobile Menu Toggle -->
+  <script>
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    mobileMenuButton.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+      const expanded = mobileMenu.getAttribute('aria-expanded') === 'true' || false;
+      mobileMenu.setAttribute('aria-expanded', !expanded);
+    });
+  </script>
 
 </body>
 
