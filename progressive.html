@@ -1,42 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Progressive Form</title>
-<link rel="shortcut icon" href="assets/images/site_logo/favourite_icon.svg">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Progressive Form</title>
+    <link
+      rel="shortcut icon"
+      href="assets/images/site_logo/favourite_icon.svg"
+    />
 
-<!-- Framework - CSS Include -->
-<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+    <!-- Framework - CSS Include -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="assets/css/bootstrap.min.css"
+    />
 
-<!-- Icon Font - CSS Include -->
-<link rel="stylesheet" type="text/css" href="assets/css/fontawesome.min.css">
+    <!-- Icon Font - CSS Include -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="assets/css/fontawesome.min.css"
+    />
 
-<!-- Animation - CSS Include -->
-<link rel="stylesheet" type="text/css" href="assets/css/animate.min.css">
+    <!-- Animation - CSS Include -->
+    <link rel="stylesheet" type="text/css" href="assets/css/animate.min.css" />
 
-<!-- Cursor - CSS Include -->
-<link rel="stylesheet" type="text/css" href="assets/css/cursor.min.css">
+    <!-- Cursor - CSS Include -->
+    <link rel="stylesheet" type="text/css" href="assets/css/cursor.min.css" />
 
-<!-- Carousel - CSS Include -->
-<link rel="stylesheet" type="text/css" href="assets/css/slick.min.css">
-<link rel="stylesheet" type="text/css" href="assets/css/slick-theme.min.css">
+    <!-- Carousel - CSS Include -->
+    <link rel="stylesheet" type="text/css" href="assets/css/slick.min.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="assets/css/slick-theme.min.css"
+    />
 
-<!-- Video & Image Popup - CSS Include -->
-<link rel="stylesheet" type="text/css" href="assets/css/magnific-popup.min.css">
+    <!-- Video & Image Popup - CSS Include -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="assets/css/magnific-popup.min.css"
+    />
 
-<!-- Counter - CSS Include -->
-<link rel="stylesheet" type="text/css" href="assets/css/odometer.min.css">
+    <!-- Counter - CSS Include -->
+    <link rel="stylesheet" type="text/css" href="assets/css/odometer.min.css" />
 
-<style>
-    @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500&display=swap');
-    body {
-        font-family: 'Outfit', sans-serif;
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Outfit:wght@400;500&display=swap");
+      body {
+        font-family: "Outfit", sans-serif;
         margin: 0;
         padding: 0;
         background-color: #e8f5e9; /* Light green background */
-    }
-    .container {
+      }
+      .container {
         width: 100%;
         max-width: 600px;
         padding: 20px;
@@ -44,69 +63,72 @@
         border-radius: 10px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         margin: 20px auto; /* Center the container */
-    }
-    .navbar {
+      }
+      .navbar {
         background-color: #12989b;
         padding: 10px;
         display: flex;
         justify-content: space-between;
         align-items: center;
         color: #fff;
-    }
-    .navbar a {
+      }
+      .navbar a {
         color: #fff;
         text-decoration: none;
         margin: 0 10px;
         font-weight: bold;
-    }
-    .navbar a:hover {
+      }
+      .navbar a:hover {
         text-decoration: underline;
-    }
-    .progress-bar {
+      }
+      .progress-bar {
         width: 100%;
         background-color: #f0f0f0;
         border-radius: 5px;
         margin-bottom: 20px;
-    }
-    .progress {
+      }
+      .progress {
         height: 10px;
         background-color: #05aaad;
         border-radius: 5px;
         transition: width 0.3s ease;
-    }
-    .step {
+      }
+      .step {
         display: none;
-    }
-    .step.active {
+      }
+      .step.active {
         display: block;
-    }
-    input[type="text"], input[type="email"], textarea {
+      }
+      input[type="text"],
+      input[type="email"],
+      textarea {
         width: 100%;
         padding: 10px;
         margin: 10px 0;
         border: 1px solid #ccc; /* Slim borders */
         border-radius: 5px; /* Rounded corners */
         box-sizing: border-box;
-    }
-    h5, h4 {
-        font-family: 'Outfit', sans-serif;
+      }
+      h5,
+      h4 {
+        font-family: "Outfit", sans-serif;
         color: #353232; /* Light gray */
         margin: 5px 0;
-    }
-    label {
+      }
+      label {
         display: flex;
         align-items: center;
         margin: 10px 0;
-    }
-    input[type="checkbox"] {
+      }
+      input[type="checkbox"] {
         width: 20px;
         height: 20px;
         margin-right: 10px;
         border-radius: 5px;
         cursor: pointer;
         accent-color: #28a745; /* Green color for ticks */
-    }
-    button {
+      }
+      button {
         display: block;
         width: 100%;
         padding: 10px;
@@ -117,273 +139,348 @@
         color: #fff;
         cursor: pointer;
         font-size: 16px;
-    }
-    button:hover {
+      }
+      button:hover {
         background-color: #098aa1;
-    }
-    header {
+      }
+      header {
         text-align: center;
         padding: 50px 0;
         background-color: #80b780;
         color: #fff;
-    }
-    header h1 {
+      }
+      header h1 {
         margin: 0;
         font-size: 36px;
-    }
-    header p {
+      }
+      header p {
         margin: 10px 0 0;
         font-size: 18px;
-    }
-    footer {
+      }
+      footer {
         background-color: #12989b;
         color: #fff;
         padding: 20px 0;
         text-align: center;
-    }
-    footer .footer-links {
+      }
+      footer .footer-links {
         margin: 20px 0;
-    }
-    footer .footer-links a {
+      }
+      footer .footer-links a {
         color: #fff;
         margin: 0 10px;
         text-decoration: none;
-    }
-    footer .footer-links a:hover {
+      }
+      footer .footer-links a:hover {
         text-decoration: underline;
-    }
-    footer .social_links a {
+      }
+      footer .social_links a {
         color: #fff;
         margin: 0 10px;
-    }
-    footer .social_links a:hover {
+      }
+      footer .social_links a:hover {
         color: #eee;
-    }
-    .footer-logo img {
+      }
+      .footer-logo img {
         max-width: 150px;
         margin-bottom: 20px;
-    }
-</style>
-</head>
-<body>
-<div class="navbar" style="background-image: url('https://images3.alphacoders.com/132/1323579.png'); background-size: cover;">
-    <div class="navbar-brand">
-        <img src="https://trueguidancehub.com/wp-content/uploads/2023/09/TRUE-GUIDANCE-UGANDA-LOGO.png" alt="Site Logo" style="border-radius: 4px; background-color: white; height: 80px; width: 130px;">
-    </div>
-    <div class="navbar-links">
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      class="navbar"
+      style="
+        background-image: url('https://images3.alphacoders.com/132/1323579.png');
+        background-size: cover;
+      "
+    >
+      <div class="navbar-brand">
+        <img
+          src="https://trueguidancehub.com/wp-content/uploads/2023/09/TRUE-GUIDANCE-UGANDA-LOGO.png"
+          alt="Site Logo"
+          style="
+            border-radius: 4px;
+            background-color: white;
+            height: 80px;
+            width: 130px;
+          "
+        />
+      </div>
+      <div class="navbar-links">
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
         <a href="contact.html">Contact</a>
         <a href="#login">Login</a>
+      </div>
     </div>
-</div>
-<header>
-    <h1>Welcome to Our Service</h1>
-    <p>Connecting you with professional therapists</p>
-</header>
-<div class="container" style="background-image: url('https://images5.alphacoders.com/132/1323577.png'); background-size: cover;">
-    <div style="background-color: #80b780; border-radius: 10px; padding: 20px; margin-bottom: 20px; color: rgb(62, 58, 58); font-family: 'Outfit', sans-serif;">
-        <h2 style="color: rgb(51, 49, 49);">Welcome to this fill out form</h2>
-    </div>
-    <div class="progress-bar">
-        <div class="progress" style="width: 0;"></div>
-    </div>
-    <form id="progressive-form">
+    <header>
+      <h1>Welcome to Our Service</h1>
+      <p>Connecting you with professional therapists</p>
+    </header>
+    <div
+      class="container"
+      style="
+        background-image: url('https://images5.alphacoders.com/132/1323577.png');
+        background-size: cover;
+      "
+    >
+      <div
+        style="
+          background-color: #80b780;
+          border-radius: 10px;
+          padding: 20px;
+          margin-bottom: 20px;
+          color: rgb(62, 58, 58);
+          font-family: 'Outfit', sans-serif;
+        "
+      >
+        <h2 style="color: rgb(51, 49, 49)">Welcome to this fill out form</h2>
+      </div>
+      <div class="progress-bar">
+        <div class="progress" style="width: 0"></div>
+      </div>
+      <form id="progressive-form">
         <div class="step active">
-            <h2>Start you journey</h2>
-            <h5>Full Name</h5>
-            <input type="text" placeholder="Name">
-            <h5>Gender</h5>
-            <input type="text" placeholder="Gender">
-            <h5>Age</h5>
-            <input type="text" placeholder="Age">
-            <h5>Telephone number</h5>
-            <input type="text" placeholder="number">
-            <h5>Nationality</h5>
-            <input type="text" placeholder="Nationality">
-            <button type="button" onclick="nextStep()">Next</button>
+          <h2>Start you journey</h2>
+          <h5>Full Name</h5>
+          <input type="text" placeholder="Name" />
+          <label for="gender">Gender:</label>
+          <select id="gender" name="gender" onchange="showTextBox()">
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="others">Others</option>
+          </select>
+          <input
+            type="text"
+            id="otherGender"
+            name="otherGender"
+            style="display: none"
+            placeholder="Enter your gender"
+          />
+          <h5>Age</h5>
+          <input type="text" placeholder="Age" />
+          <h5>Telephone number</h5>
+          <input type="text" placeholder="number" />
+          <label for="nationality">Nationality:</label>
+          <select id="nationality" name="nationality">
+            <option value="USA">United States</option>
+            <option value="CAN">Canada</option>
+            <option value="GBR">United Kingdom</option>
+            <option value="Uganda">Uganda</option>
+            <option value="kenya">Kenya</option>
+            <option value="Rwanda">Rwanda</option>
+            <option value="tz">Tanzania</option>
+            <option value="DRC">Congo</option>
+            <option value="SS">South Sudan</option>
+            <!-- Add more options as needed -->
+          </select>
+          <button type="button" onclick="nextStep()">Next</button>
         </div>
         <div class="step">
-            <h2>What type of therapy are you looking for?</h2>
-            <button type="button" onclick="nextStep()">Teen </button>
-            <button type="button" onclick="nextStep()">Individual</button>
-            <button type="button" onclick="nextStep()">Couples </button>
-            <br>
-            <button type="button" onclick="prevStep()">Previous</button>
+          <h2>What type of therapy are you looking for?</h2>
+          <button type="button" onclick="nextStep()">Teen</button>
+          <button type="button" onclick="nextStep()">Individual</button>
+          <button type="button" onclick="nextStep()">Couples</button>
+          <br />
+          <button type="button" onclick="prevStep()">Previous</button>
         </div>
         <div class="step">
-            <h2>How do you identify?</h2>
-            <button type="button" onclick="nextStep()">Straight </button>
-            <button type="button" onclick="nextStep()">Gay</button>
-            <button type="button" onclick="nextStep()">Bi or Pan </button>
-            <button type="button" onclick="nextStep()">Lesbian </button>
-            <button type="button" onclick="nextStep()">Prefer not to say </button>
-            <br>
-            <button type="button" onclick="prevStep()">Previous</button>
+          <h2>How do you identify?</h2>
+          <button type="button" onclick="nextStep()">Straight</button>
+          <button type="button" onclick="nextStep()">Gay</button>
+          <button type="button" onclick="nextStep()">Bi or Pan</button>
+          <button type="button" onclick="nextStep()">Lesbian</button>
+          <button type="button" onclick="nextStep()">Prefer not to say</button>
+          <br />
+          <button type="button" onclick="prevStep()">Previous</button>
         </div>
         <div class="step">
-            <h2>What is your relationship status?</h2>
-            <button type="button" onclick="nextStep()">Single</button>
-            <button type="button" onclick="nextStep()">Married</button>
-            <button type="button" onclick="nextStep()">Divorced </button>
-            <button type="button" onclick="nextStep()">Widowed </button>
-            <button type="button" onclick="nextStep()">Others </button>
-            <br>
-            <button type="button" onclick="prevStep()">Previous</button>
+          <h2>What is your relationship status?</h2>
+          <button type="button" onclick="nextStep()">Single</button>
+          <button type="button" onclick="nextStep()">Married</button>
+          <button type="button" onclick="nextStep()">Divorced</button>
+          <button type="button" onclick="nextStep()">Widowed</button>
+          <button type="button" onclick="nextStep()">Others</button>
+          <br />
+          <button type="button" onclick="prevStep()">Previous</button>
         </div>
         <div class="step">
-            <h2>Do you consider yourself religious?</h2>
-            <button type="button" onclick="nextStep()">Yes </button>
-            <button type="button" onclick="nextStep()">No</button>
-            <br>
-            <button type="button" onclick="prevStep()">Previous</button>
+          <h2>Do you consider yourself religious?</h2>
+          <button type="button" onclick="nextStep()">Yes</button>
+          <button type="button" onclick="nextStep()">No</button>
+          <br />
+          <button type="button" onclick="prevStep()">Previous</button>
         </div>
         <div class="step">
-            <h2>What is your religion?</h2>
-            <button type="button" onclick="nextStep()">Hinduism</button>
-            <button type="button" onclick="nextStep()">Christianity</button>
-            <button type="button" onclick="nextStep()">Islam</button>
-            <button type="button" onclick="nextStep()">Buddhism </button>
-            <button type="button" onclick="nextStep()">Other</button>
-            <br>
-            <button type="button" onclick="prevStep()">Previous</button>
+          <h2>What is your religion?</h2>
+          <button type="button" onclick="nextStep()">Hinduism</button>
+          <button type="button" onclick="nextStep()">Christianity</button>
+          <button type="button" onclick="nextStep()">Islam</button>
+          <button type="button" onclick="nextStep()">Buddhism</button>
+          <button type="button" onclick="nextStep()">Other</button>
+          <br />
+          <button type="button" onclick="prevStep()">Previous</button>
         </div>
         <div class="step">
-            <h2>When would you prefer to start your therapy?</h2>
-            <button type="button" onclick="nextStep()">Immediate</button>
-            <button type="button" onclick="nextStep()">Later</button>
-            <br>
-            <button type="button" onclick="prevStep()">Previous</button>
+          <h2>When would you prefer to start your therapy?</h2>
+          <button type="button" onclick="nextStep()">Immediate</button>
+          <button type="button" onclick="nextStep()">Later</button>
+          <br />
+          <button type="button" onclick="prevStep()">Previous</button>
         </div>
+       
         <div class="step">
             <h2>Preferred session day?</h2>
-            <button type="button" onclick="nextStep()">Monday</button>
-            <button type="button" onclick="nextStep()">Tuesday</button>
-            <button type="button" onclick="nextStep()">Wednesday</button>
-            <button type="button" onclick="nextStep()">Thursday</button>
-            <button type="button" onclick="nextStep()">Friday</button>
-            <button type="button" onclick="nextStep()">Saturday</button>
-            <button type="button" onclick="nextStep()">Sunday</button>
+            <input type="date" id="sessionDate" name="sessionDate">
             <br>
-            <button type="button" onclick="prevStep()">Previous</button>
+            <button type="button" onclick="nextStep()">Next</button>
+          </div>
+        <div class="step">
+          <h2>Do you have any preexisting medical conditions?</h2>
+          <button type="button" onclick="nextStep()">Yes</button>
+          <button type="button" onclick="nextStep()">No</button>
+          <br />
+          <button type="button" onclick="prevStep()">Previous</button>
         </div>
         <div class="step">
-            <h2>What is your monthly income?</h2>
-            <button type="button" onclick="nextStep()">less than 25k</button>
-            <button type="button" onclick="nextStep()">50k-75k</button>
-            <button type="button" onclick="nextStep()">100k-150k</button>
-            <button type="button" onclick="nextStep()">200k-250k</button>
-            <button type="button" onclick="nextStep()">Other</button>
-            <br>
-            <button type="button" onclick="prevStep()">Previous</button>
+          <h2>Have you had any suicidal thoughts?</h2>
+          <button type="button" onclick="nextStep()">Yes</button>
+          <button type="button" onclick="nextStep()">No</button>
+          <br />
+          <button type="button" onclick="prevStep()">Previous</button>
         </div>
         <div class="step">
-            <h2>Do you have any preexisting medical conditions?</h2>
-            <button type="button" onclick="nextStep()">Yes</button>
-            <button type="button" onclick="nextStep()">No</button>
-            <br>
-            <button type="button" onclick="prevStep()">Previous</button>
+          <h2>
+            Have you been depressed anxious or overwhelmed in the past days?
+          </h2>
+          <button type="button" onclick="nextStep()">Yes</button>
+          <button type="button" onclick="nextStep()">No</button>
+          <br />
+          <button type="button" onclick="prevStep()">Previous</button>
         </div>
         <div class="step">
-            <h2>Have you had any suicidal thoughts?</h2>
-            <button type="button" onclick="nextStep()">Yes</button>
-            <button type="button" onclick="nextStep()">No</button>
-            <br>
-            <button type="button" onclick="prevStep()">Previous</button>
+          <h2>Have you been in therapy before?</h2>
+          <button type="button" onclick="nextStep()">Yes</button>
+          <button type="button" onclick="nextStep()">No</button>
+          <br />
+          <button type="button" onclick="prevStep()">Previous</button>
         </div>
         <div class="step">
-            <h2>Have you been depressed anxious or overwhelmed in the past days?</h2>
-            <button type="button" onclick="nextStep()">Yes</button>
-            <button type="button" onclick="nextStep()">No</button>
-            <br>
-            <button type="button" onclick="prevStep()">Previous</button>
+          <h2>What is the main reason you are seeking therapy?</h2>
+          <input type="text" placeholder="Reason" />
+          <button type="button" onclick="nextStep()">Submit</button>
+          <button type="button" onclick="prevStep()">Previous</button>
         </div>
         <div class="step">
-            <h2>Have you been in therapy before?</h2>
-            <button type="button" onclick="nextStep()">Yes</button>
-            <button type="button" onclick="nextStep()">No</button>
-            <br>
-            <button type="button" onclick="prevStep()">Previous</button>
+          <h2>What type of therapist are you comortable around?</h2>
+          <input type="text" placeholder="describe" />
+          <button type="button" onclick="nextStep()">Submit</button>
+          <button type="button" onclick="prevStep()">Previous</button>
         </div>
         <div class="step">
-            <h2>What is the main reason you are seeking therapy?</h2>
-            <input type="text" placeholder="Reason">
-            <button type="button" onclick="nextStep()">Submit</button>
-            <button type="button" onclick="prevStep()">Previous</button>
+          <h2>What is your major reason for therapy?</h2>
+          <input type="text" placeholder="describe" />
+          <button type="button" id="submitBtn" onclick="redirectToLogin()">
+            Submit
+          </button>
+          <button type="button" onclick="prevStep()">Previous</button>
         </div>
-        <div class="step">
-            <h2>What type of therapist are you comortable around?</h2>
-            <input type="text" placeholder="describe">
-            <button type="button"  onclick="nextStep()">Submit </button>
-            <button type="button" onclick="prevStep()">Previous</button>
-        </div>
-        <div class="step">
-            <h2>What is your major reason for therapy?</h2>
-            <input type="text" placeholder="describe">
-            <button type="button" id="submitBtn" onclick="redirectToLogin()">Submit</button>
-            <button type="button" onclick="prevStep()">Previous</button>
-        </div>
-    </form>
-</div>
-<footer style="background-image: url('https://images3.alphacoders.com/132/1323579.png'); background-size: cover;">
-    <div class="footer-logo" >
-        <img src="https://trueguidancehub.com/wp-content/uploads/2023/09/TRUE-GUIDANCE-UGANDA-LOGO.png" alt="Site Logo" style="background-color: white; height: 100px; width: 160px; border-radius: 4px;">
+      </form>
     </div>
-    <div class="footer-links">
+    <footer
+      style="
+        background-image: url('https://images3.alphacoders.com/132/1323579.png');
+        background-size: cover;
+      "
+    >
+      <div class="footer-logo">
+        <img
+          src="https://trueguidancehub.com/wp-content/uploads/2023/09/TRUE-GUIDANCE-UGANDA-LOGO.png"
+          alt="Site Logo"
+          style="
+            background-color: white;
+            height: 100px;
+            width: 160px;
+            border-radius: 4px;
+          "
+        />
+      </div>
+      <div class="footer-links">
         <a href="#home">Home</a>
         <a href="#about">About</a>
         <a href="#contact">Contact</a>
         <a href="#privacy">Privacy Policy</a>
         <a href="#terms">Terms of Service</a>
-    </div>
-    <div class="social_links">
-        <a href="https://www.facebook.com/yourpage" target="_blank"><i class="fab fa-facebook-f"></i></a>
-        <a href="https://twitter.com/yourpage" target="_blank"><i class="fab fa-twitter"></i></a>
-        <a href="https://www.instagram.com/yourpage" target="_blank"><i class="fab fa-instagram"></i></a>
-        <a href="https://www.linkedin.com/yourpage" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-    </div>
-    <p>&copy; 2024 True guidance. All rights reserved.</p>
-</footer>
-<script>
-    let currentStep = 0;
-    const steps = document.querySelectorAll(".step");
-    const progress = document.querySelector(".progress");
+      </div>
+      <div class="social_links">
+        <a href="https://www.facebook.com/yourpage" target="_blank"
+          ><i class="fab fa-facebook-f"></i
+        ></a>
+        <a href="https://twitter.com/yourpage" target="_blank"
+          ><i class="fab fa-twitter"></i
+        ></a>
+        <a href="https://www.instagram.com/yourpage" target="_blank"
+          ><i class="fab fa-instagram"></i
+        ></a>
+        <a href="https://www.linkedin.com/yourpage" target="_blank"
+          ><i class="fab fa-linkedin-in"></i
+        ></a>
+      </div>
+      <p>&copy; 2024 True guidance. All rights reserved.</p>
+    </footer>
+    <script>
+      let currentStep = 0;
+      const steps = document.querySelectorAll(".step");
+      const progress = document.querySelector(".progress");
 
-    function updateProgressBar() {
+      function updateProgressBar() {
         const progressPercentage = (currentStep / (steps.length - 1)) * 100;
         progress.style.width = progressPercentage + "%";
-    }
+      }
 
-    function redirectToLogin() {
-            window.location.href = 'login.html';
+      function redirectToLogin() {
+        window.location.href = "login.html";
+      }
+
+      function showTextBox() {
+        var selectBox = document.getElementById("gender");
+        var selectedValue = selectBox.options[selectBox.selectedIndex].value;
+        var otherGenderTextBox = document.getElementById("otherGender");
+
+        if (selectedValue === "others") {
+          otherGenderTextBox.style.display = "inline-block";
+          otherGenderTextBox.required = true; // Optional: Make the text box required
+        } else {
+          otherGenderTextBox.style.display = "none";
+          otherGenderTextBox.required = false; // Optional: Reset required attribute
         }
+      }
 
-
-    function showStep() {
+      function showStep() {
         steps.forEach((step, index) => {
-            step.classList.toggle("active", index === currentStep);
+          step.classList.toggle("active", index === currentStep);
         });
         updateProgressBar();
-    }
+      }
 
-    function nextStep() {
+      function nextStep() {
         if (currentStep < steps.length - 1) {
-            currentStep++;
-            showStep();
+          currentStep++;
+          showStep();
         }
-    }
+      }
 
-    function prevStep() {
+      function prevStep() {
         if (currentStep > 0) {
-            currentStep--;
-            showStep();
+          currentStep--;
+          showStep();
         }
-    }
+      }
 
-    showStep(); // Initialize the form display
+      showStep(); // Initialize the form display
 
-    // Redirect to the login page on submit
-    ;
-</script>
-</body>
+      // Redirect to the login page on submit
+    </script>
+  </body>
 </html>
