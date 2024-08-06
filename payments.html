@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Therapy Dashboard</title>
+  <title>Therapy Dashboard - Payments</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <style>
     .card {
@@ -94,52 +94,50 @@
 
       <!-- Top Navbar -->
       <header class="bg-white shadow flex justify-between items-center px-4 py-4">
-        <h2 class="text-3xl font-bold text-gray-900">Dashboard</h2>
+        <h2 class="text-3xl font-bold text-gray-900">Payments</h2>
         <a href="logout.html" class="text-sm font-medium text-gray-700 hover:text-gray-900">Sign Out</a>
       </header>
 
       <main class="flex-1 overflow-y-auto">
         <div class="px-4 py-6 sm:px-6 lg:px-6 grid gap-4">
 
-          
-
-          <!-- Table 3: Client Stats -->
+          <!-- Payment Table -->
           <div class="card">
             <div class="card-header">
-              <h2 class="card-title">payments</h2>
+              <h2 class="card-title">Payments</h2>
             </div>
             <div class="card-body">
               <table class="min-w-full bg-white">
                 <thead>
                   <tr>
                     <th class="py-2 px-2 text-left border-b bg-gray-100">Client</th>
-                    <th class="py-2 px-2 text-left border-b bg-gray-100">Total Appointments</th>
-                    <th class="py-2 px-2 text-left border-b bg-gray-100">Completed</th>
-                    <th class="py-2 px-2 text-left border-b bg-gray-100">Upcoming</th>
+                    <th class="py-2 px-2 text-left border-b bg-gray-100">Date</th>
+                    <th class="py-2 px-2 text-left border-b bg-gray-100">Amount</th>
+                    <th class="py-2 px-2 text-left border-b bg-gray-100">Status</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
                     <td class="py-2 px-2 text-left border-b">John Doe</td>
-                    <td class="py-2 px-2 text-left border-b">15</td>
-                    <td class="py-2 px-2 text-left border-b">12</td>
-                    <td class="py-2 px-2 text-left border-b">3</td>
+                    <td class="py-2 px-2 text-left border-b">01/08/2024</td>
+                    <td class="py-2 px-2 text-left border-b">$150</td>
+                    <td class="py-2 px-2 text-left border-b">Paid</td>
                   </tr>
                   <tr>
                     <td class="py-2 px-2 text-left border-b">Jane Smith</td>
-                    <td class="py-2 px-2 text-left border-b">10</td>
-                    <td class="py-2 px-2 text-left border-b">8</td>
-                    <td class="py-2 px-2 text-left border-b">2</td>
+                    <td class="py-2 px-2 text-left border-b">03/08/2024</td>
+                    <td class="py-2 px-2 text-left border-b">$120</td>
+                    <td class="py-2 px-2 text-left border-b">Pending</td>
                   </tr>
                   <tr>
                     <td class="py-2 px-2 text-left border-b">Emily Johnson</td>
-                    <td class="py-2 px-2 text-left border-b">20</td>
-                    <td class="py-2 px-2 text-left border-b">17</td>
-                    <td class="py-2 px-2 text-left border-b">3</td>
+                    <td class="py-2 px-2 text-left border-b">05/08/2024</td>
+                    <td class="py-2 px-2 text-left border-b">$180</td>
+                    <td class="py-2 px-2 text-left border-b">Paid</td>
                   </tr>
                 </tbody>
               </table>
-              <a href="clients.html" class="text-indigo-600 hover:text-indigo-900 mt-4 block">View all clients</a>
+              <a href="payments.html" class="text-indigo-600 hover:text-indigo-900 mt-4 block">View all payments</a>
             </div>
           </div>
 
