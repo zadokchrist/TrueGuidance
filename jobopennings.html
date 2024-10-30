@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Job Openings - True Guidance</title>
+    <link rel="shortcut icon" href="assets/images/site_logo/favourite_icon.svg">
+
+    <!-- Bootstrap and Custom CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/fontawesome.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body style="background-image: url('https://static.vecteezy.com/system/resources/thumbnails/011/426/071/small_2x/aesthetic-white-and-green-background-with-space-for-text-modern-background-design-with-liquid-shape-white-background-with-green-liquid-shapes-free-vector.jpg'); background-size: cover;">
+
+    <div class="page_wrapper">
+
+        <!-- Header -->
+        <header class="site_header">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-3">
+                        <a href="index.html">
+                            <img src="https://trueguidancehub.com/wp-content/uploads/2023/09/TRUE-GUIDANCE-UGANDA-LOGO.png"
+                                alt="Site Logo" style="height: 100px; width: 160px;">
+                        </a>
+                    </div>
+                    <div class="col-lg-6">
+                        <nav class="navbar navbar-expand-lg">
+                            <div class="collapse navbar-collapse" id="main_menu_dropdown">
+                                <ul class="navbar-nav mx-auto">
+                                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="jobopenings.html">Job Openings</a></li>
+                                </ul>
+                            </div>
+                        </nav>
+                    </div>
+                    <div class="col-lg-3 text-end">
+                        <button class="btn btn-outline-primary" onclick="location.href='login.html'">Login</button>
+                        <button class="btn btn-primary" onclick="location.href='register.html'">Register</button>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Job Openings Section -->
+        <section class="job_openings section_space_lg">
+            <div class="container">
+                <div class="section_heading text-center">
+                    <h2>Current Job Openings</h2>
+                    <p>Join our team to make a positive impact on mental health and well-being.</p>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="card mb-4">
+                            <div class="card-body">
+                                <h5 class="card-title">Mental Health Counselor</h5>
+                                <p class="card-text">Provide individual counseling sessions to clients.</p>
+                                <button class="btn btn-outline-primary apply-btn" data-bs-toggle="modal"
+                                    data-bs-target="#applyModal" data-job="Mental Health Counselor">Apply Now</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="card mb-4">
+                            <div class="card-body">
+                                <h5 class="card-title">Clinical Psychologist</h5>
+                                <p class="card-text">Conduct psychological assessments and treatment plans.</p>
+                                <button class="btn btn-outline-primary apply-btn" data-bs-toggle="modal"
+                                    data-bs-target="#applyModal" data-job="Clinical Psychologist">Apply Now</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="card mb-4">
+                            <div class="card-body">
+                                <h5 class="card-title">Family Therapist</h5>
+                                <p class="card-text">Provide therapy sessions to couples and families.</p>
+                                <button class="btn btn-outline-primary apply-btn" data-bs-toggle="modal"
+                                    data-bs-target="#applyModal" data-job="Family Therapist">Apply Now</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Apply Now Modal -->
+        <div class="modal fade" id="applyModal" tabindex="-1" aria-labelledby="applyModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <form id="jobApplicationForm">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="applyModalLabel">Apply for <span id="jobTitle"></span></h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="mb-3">
+                                <label for="applicantName" class="form-label">Full Name</label>
+                                <input type="text" id="applicantName" name="name" class="form-control" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="applicantEmail" class="form-label">Email Address</label>
+                                <input type="email" id="applicantEmail" name="email" class="form-control" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="applicantPhone" class="form-label">Phone Number</label>
+                                <input type="tel" id="applicantPhone" name="phone" class="form-control" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="applicantCV" class="form-label">Upload CV</label>
+                                <input type="file" id="applicantCV" name="cv" class="form-control" required>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Submit Application</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="site_footer bg_primary" style="background-image: url('https://images3.alphacoders.com/132/1323579.png'); background-size: cover;">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-3">
+                        <a href="index.html">
+                            <img src="https://trueguidancehub.com/wp-content/uploads/2023/09/TRUE-GUIDANCE-UGANDA-LOGO.png"
+                                alt="Site Logo" style="height: 100px; width: 160px; border-radius: 4px;">
+                        </a>
+                    </div>
+                    <div class="col-lg-6 text-center">
+                        <ul class="list-inline">
+                            <li class="list-inline-item"><a href="index.html">Home</a></li>
+                            <li class="list-inline-item"><a href="about.html">About</a></li>
+                            <li class="list-inline-item"><a href="service.html">Program</a></li>
+                            <li class="list-inline-item"><a href="blog.html">Blog</a></li>
+                            <li class="list-inline-item"><a href="contact.html">Contacts</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-3 text-end">
+                        <ul class="list-inline">
+                            <li class="list-inline-item"><a href="#"><i class="fa-brands fa-facebook-f"></i></a></li>
+                            <li class="list-inline-item"><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="text-center mt-3">
+                    <p>Daniel © True Guidance Hub. All rights reserved 2024.</p>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.querySelectorAll('.apply-btn').forEach(button => {
+            button.addEventListener('click', function () {
+                const jobTitle = this.getAttribute('data-job');
+                document.getElementById('jobTitle').innerText = jobTitle;
+            });
+        });
+
+        document.getElementById('jobApplicationForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            alert('Application submitted successfully!');
+            bootstrap.Modal.getInstance(document.getElementById('applyModal')).hide();
+            this.reset();
+        });
+    </script>
+
+</body>
+
+</html>
