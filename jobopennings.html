@@ -33,7 +33,7 @@
                                 <ul class="navbar-nav mx-auto">
                                     <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
                                     <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="jobopenings.html">Job Openings</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="jobopenings.html">Therapist Jobs</a></li>
                                 </ul>
                             </div>
                         </nav>
@@ -113,8 +113,28 @@
                                 <input type="tel" id="applicantPhone" name="phone" class="form-control" required>
                             </div>
                             <div class="mb-3">
+                                <label for="applicantCV" class="form-label">Cover letter</label>
+                                <input type="file" id="applicantCV" name="coverletter" class="form-control" required>
+                            </div>
+                            <div class="mb-3">
                                 <label for="applicantCV" class="form-label">Upload CV</label>
                                 <input type="file" id="applicantCV" name="cv" class="form-control" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="applicantCV" class="form-label">Academic Documents</label>
+                                <input type="file" id="applicantCV" name="cv" class="form-control" required>
+                            </div>
+                            <div class="mb-3">
+                              <label for="countryoforigin" class="form-label">Country Of Origin</label>
+                              <select id="countryDropdown" class="form-select">
+                                <option disabled selected> Select Country</option></option>
+                              </select>
+                            </div>
+                            <div class="mb-3">
+                              <label for="primarylanguage" class="form-label">Laguage Spoken</label>
+                              <select name="primarylanguage" id="languageDropdown" class="form-select">
+                                <option disabled selected> Select Language</option></option>
+                              </select>
                             </div>
                         </div>
                         <div class="modal-footer">
@@ -177,6 +197,46 @@
             this.reset();
         });
     </script>
+
+    !-- Add this JavaScript at the bottom of the body, before the closing </body> tag -->
+<script>
+    async function populateDropdowns() {
+        try {
+            // Fetching countries
+            const countriesResponse = await fetch('https://restcountries.com/v3.1/all');
+            const countries = await countriesResponse.json();
+            const countryDropdown = document.getElementById('countryDropdown');
+            countries.forEach(country => {
+                const option = document.createElement('option');
+                option.value = country.name.common;
+                option.textContent = country.name.common;
+                countryDropdown.appendChild(option);
+            });
+
+            // Fetching languages
+            const languagesResponse = await fetch('https://restcountries.com/v3.1/all');
+            const languagesData = await languagesResponse.json();
+            const languageDropdown = document.getElementById('languageDropdown');
+            const languages = new Set(); // Using a Set to avoid duplicates
+            languagesData.forEach(country => {
+                if (country.languages) {
+                    Object.values(country.languages).forEach(language => languages.add(language));
+                }
+            });
+            languages.forEach(language => {
+                const option = document.createElement('option');
+                option.value = language;
+                option.textContent = language;
+                languageDropdown.appendChild(option);
+            });
+        } catch (error) {
+            console.error("Error fetching data:", error);
+        }
+    }
+
+    // Call the function on page load
+    document.addEventListener('DOMContentLoaded', populateDropdowns);
+</script>
 
 </body>
 

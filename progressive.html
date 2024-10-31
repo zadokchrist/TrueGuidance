@@ -246,7 +246,7 @@
           <h5>Full Name</h5>
           <input type="text" placeholder="Name" />
           <label for="gender">Gender:</label>
-          <select id="gender" name="gender" onchange="showTextBox()" style="width: 96%; border-width: 1px; padding: 5px;" >
+          <select id="gender" name="gender" onchange="showTextBox()" class="form-select" >
             <option value="male">Male</option>
             <option value="female">Female</option>
             <option value="others">Others</option>
@@ -263,17 +263,8 @@
           <h5>Telephone number</h5>
           <input type="text" placeholder="number" />
           <label for="nationality">Nationality:</label>
-          <select id="nationality" name="nationality" style="width: 96%; border-width: 1px; padding: 5px;">
-            <option value="USA">United States</option>
-            <option value="CAN">Canada</option>
-            <option value="GBR">United Kingdom</option>
-            <option value="Uganda">Uganda</option>
-            <option value="kenya">Kenya</option>
-            <option value="Rwanda">Rwanda</option>
-            <option value="tz">Tanzania</option>
-            <option value="DRC">Congo</option>
-            <option value="SS">South Sudan</option>
-            <!-- Add more options as needed -->
+          <select id="nationality" name="nationality" id="nationality" class="form-select">
+            <option selected disabled>Select Your Nationality</option>
         </select>
           <button type="button" onclick="nextStep()">Next</button>
         </div>
@@ -482,5 +473,44 @@
 
       // Redirect to the login page on submit
     </script>
+
+    <script>
+    async function populateDropdowns() {
+        try {
+            // Fetching countries
+            const countriesResponse = await fetch('https://restcountries.com/v3.1/all');
+            const countries = await countriesResponse.json();
+            const countryDropdown = document.getElementById('nationality');
+            countries.forEach(country => {
+                const option = document.createElement('option');
+                option.value = country.name.common;
+                option.textContent = country.name.common;
+                countryDropdown.appendChild(option);
+            });
+
+            // Fetching languages
+            const languagesResponse = await fetch('https://restcountries.com/v3.1/all');
+            const languagesData = await languagesResponse.json();
+            const languageDropdown = document.getElementById('languageDropdown');
+            const languages = new Set(); // Using a Set to avoid duplicates
+            languagesData.forEach(country => {
+                if (country.languages) {
+                    Object.values(country.languages).forEach(language => languages.add(language));
+                }
+            });
+            languages.forEach(language => {
+                const option = document.createElement('option');
+                option.value = language;
+                option.textContent = language;
+                languageDropdown.appendChild(option);
+            });
+        } catch (error) {
+            console.error("Error fetching data:", error);
+        }
+    }
+
+    // Call the function on page load
+    document.addEventListener('DOMContentLoaded', populateDropdowns);
+</script>
   </body>
 </html>
