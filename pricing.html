@@ -43,7 +43,7 @@
       <!-- Mobile Menu (hidden by default) -->
       <div class="md:hidden" id="mobile-menu">
         <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-          <a href="dashboard.html" class="block px-3 py-2 rounded-md bg-gray-900 text-white text-base font-medium" aria-current="page">Home</a>
+          <a href="patient_dash.html" class="block px-3 py-2 rounded-md bg-gray-900 text-white text-base font-medium" aria-current="page">Home</a>
           <a href="appointments.html" class="block px-3 py-2 rounded-md text-gray-300 hover:bg-gray-700 hover:text-white text-base font-medium">Contact Us</a>
          
         </div>
@@ -55,121 +55,101 @@
   <!-- Main Content -->
   <main class="max-w-7xl mx-auto px-6">
 
+    <!-- Pricing Header -->
+    <div class="text-center mb-12">
+      <h1 class="text-4xl font-bold text-gray-800 mb-4">Our Pricing Plans</h1>
+      <p class="text-gray-600">Choose the plan that best suits your needs.</p>
+    </div>
+  
     <!-- Pricing Cards -->
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-
+  
       <!-- Starter Plan -->
-      <div class="rounded-lg p-6 bg-green-600 shadow-lg">
-        <div class="flex justify-between items-center mb-4">
-          <h2 class="text-xl font-semibold">Starter</h2>
+      <div class="rounded-lg p-6 bg-white shadow-lg transition-transform transform hover:scale-105">
+        <h2 class="text-xl font-semibold text-gray-800 mb-4">Starter</h2>
+        <p class="text-gray-600 mb-6">Perfect for small projects and startups.</p>
+        <div class="text-center mb-6">
+          <span class="text-4xl font-bold text-green-600">$9</span>
+          <span class="text-sm text-gray-600">/month</span>
         </div>
-        <p class="text-gray-800 mb-4">Perfect for small projects and startups.</p>
-        <div class="flex items-center mb-4">
-          <span class="text-4xl font-bold">$9</span>
-          <span class="text-sm ml-2 text-gray-800">/month</span>
-        </div>
-        <a href="dashboard.html" class="block w-full py-2 text-center bg-gray-700 hover:bg-gray-600 text-white font-semibold rounded-md transition duration-300">Buy Plan</a>
-        <ul class="mt-6 space-y-2 text-gray-800">
+        <a href="patient_dash.html" class="block w-full py-3 bg-green-600 text-white font-semibold rounded-md text-center hover:bg-green-500">
+          Buy Plan
+        </a>
+        <ul class="mt-6 space-y-3 text-gray-600">
           <li class="flex items-center">
-            <svg class="h-5 w-5 mr-2 text-gray-800" viewBox="0 0 20 20" fill="currentColor">
-              <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z"
-                clip-rule="evenodd" />
+            <svg class="h-6 w-6 text-green-500 mr-2" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd"/>
             </svg>
             Basic support
           </li>
           <li class="flex items-center">
-            <svg class="h-5 w-5 mr-2 text-gray-800" viewBox="0 0 20 20" fill="currentColor">
-              <path fill-rule="evenodd"
-                d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z"
-                clip-rule="evenodd" />
+            <svg class="h-6 w-6 text-green-500 mr-2" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd"/>
             </svg>
-            Day,s subscription
+            Day's subscription
           </li>
         </ul>
       </div>
-
-      <!-- Agency Plan -->
-      <div class="rounded-lg p-6 bg-indigo-600 shadow-lg">
-        <div class="flex justify-between items-center mb-4">
-          <h2 class="text-xl font-semibold">Mid level</h2>
+  
+      <!-- Mid Level Plan (Highlighted) -->
+      <div class="rounded-lg p-6 bg-indigo-600 shadow-lg text-white transform transition-transform hover:scale-105">
+        <div class="mb-6">
+          <h2 class="text-xl font-semibold mb-2">Mid Level</h2>
+          <span class="px-3 py-1 bg-yellow-400 text-yellow-900 text-sm font-bold rounded-full">Best Value</span>
         </div>
-        <p class="text-gray-400 mb-4"> Weeks subscription for all days of the week.</p>
-        <div class="flex items-center mb-4">
+        <p class="text-indigo-200 mb-6">Weekly subscription for all days of the week.</p>
+        <div class="text-center mb-6">
           <span class="text-4xl font-bold">$29</span>
-          <span class="text-sm ml-2 text-gray-400">/week</span>
+          <span class="text-sm">/week</span>
         </div>
-        <a href="dashboard.html" class="block w-full py-2 text-center bg-white text-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-md transition duration-300">Buy Plan</a>
-        <ul class="mt-6 space-y-2 text-gray-400">
+        <a href="patient_dash.html" class="block w-full py-3 bg-yellow-400 text-indigo-600 font-semibold rounded-md text-center hover:bg-yellow-300">
+          Buy Plan
+        </a>
+        <ul class="mt-6 space-y-3">
           <li class="flex items-center">
-            <svg class="h-5 w-5 mr-2 text-gray-300" viewBox="0 0 20 20" fill="currentColor">
-              <path fill-rule="evenodd"
-                d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z"
-                clip-rule="evenodd" />
+            <svg class="h-6 w-6 text-yellow-400 mr-2" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd"/>
             </svg>
             1 hour
           </li>
           <li class="flex items-center">
-            <svg class="h-5 w-5 mr-2 text-gray-300" viewBox="0 0 20 20" fill="currentColor">
-              <path fill-rule="evenodd"
-                d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z"
-                clip-rule="evenodd" />
+            <svg class="h-6 w-6 text-yellow-400 mr-2" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd"/>
             </svg>
             Priority support
           </li>
-          <li class="flex items-center">
-            <svg class="h-5 w-5 mr-2 text-gray-300" viewBox="0 0 20 20" fill="currentColor">
-              <path fill-rule="evenodd"
-                d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z"
-                clip-rule="evenodd" />
-            </svg>
-            Advanced analytics
-          </li>
         </ul>
       </div>
-
+  
       <!-- Corporate Plan -->
-      <div class="rounded-lg p-6 bg-green-600 shadow-lg">
-        <div class="flex justify-between items-center mb-4">
-          <h2 class="text-xl font-semibold">Corporate</h2>
+      <div class="rounded-lg p-6 bg-white shadow-lg transition-transform transform hover:scale-105">
+        <h2 class="text-xl font-semibold text-gray-800 mb-4">Corporate</h2>
+        <p class="text-gray-600 mb-6">Ideal for large teams and enterprises.</p>
+        <div class="text-center mb-6">
+          <span class="text-4xl font-bold text-green-600">$59</span>
+          <span class="text-sm text-gray-600">/month</span>
         </div>
-        <p class="text-gray-800 mb-4">Dedicated support and powerful tools for large teams.</p>
-        <div class="flex items-center mb-4">
-          <span class="text-4xl font-bold">$59</span>
-          <span class="text-sm ml-2 text-gray-800">/month</span>
-        </div>
-        <a href="dashboard.html" class="block w-full py-2 text-center bg-gray-700 hover:bg-gray-600 text-white font-semibold rounded-md transition duration-300">Buy Plan</a>
-        <ul class="mt-6 space-y-2 text-gray-800">
+        <a href="patient_dash.html" class="block w-full py-3 bg-green-600 text-white font-semibold rounded-md text-center hover:bg-green-500">
+          Buy Plan
+        </a>
+        <ul class="mt-6 space-y-3 text-gray-600">
           <li class="flex items-center">
-            <svg class="h-5 w-5 mr-2 text-gray-800" viewBox="0 0 20 20" fill="currentColor">
-              <path fill-rule="evenodd"
-                d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z"
-                clip-rule="evenodd" />
+            <svg class="h-6 w-6 text-green-500 mr-2" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd"/>
             </svg>
             Unlimited care and support
           </li>
           <li class="flex items-center">
-            <svg class="h-5 w-5 mr-2 text-gray-800" viewBox="0 0 20 20" fill="currentColor">
-              <path fill-rule="evenodd"
-                d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z"
-                clip-rule="evenodd" />
+            <svg class="h-6 w-6 text-green-500 mr-2" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd"/>
             </svg>
             24/7 support
           </li>
-          <li class="flex items-center">
-            <svg class="h-5 w-5 mr-2 text-gray-800" viewBox="0 0 20 20" fill="currentColor">
-              <path fill-rule="evenodd"
-                d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z"
-                clip-rule="evenodd" />
-            </svg>
-            Custom analytics
-          </li>
         </ul>
       </div>
-
     </div>
-
   </main>
-
+  
   <!-- Footer -->
   <footer class="bg-green-500 mt-12" style="background-image: url('https://images3.alphacoders.com/132/1323579.png'); background-size: cover; background-position: center;">
     <div class="max-w-7xl mx-auto py-12 px-6">
