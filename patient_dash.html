@@ -122,31 +122,14 @@
           </section>
           
 
-          <!-- Chat Section (Always Visible) -->
-          <section id="chat-section" class="chat-section fixed bottom-4 right-4 w-96 p-4 bg-white shadow-lg rounded-lg z-50">
-            <div class="chat-header" id="chat-header">
-              Chat with Counselor
-              <button id="video-call-btn" class="btn-primary text-sm ml-2 px-2 py-1 rounded" onclick="startVideoCall()">Start Video Call</button>
-            </div>
+          <!-- Chat Section -->
+          <section id="chat-section" class="dashboard-section hidden">
+            <div class="chat-header">Chat with Counselor</div>
             <div class="chat-box" id="chat-box">
               <!-- Chat messages will appear here -->
             </div>
             <input type="text" class="chat-input" id="chat-input" placeholder="Type a message..." onkeypress="sendMessage(event)" />
           </section>
-
-          <!-- Video Call Modal (Hidden by default) -->
-          <div id="video-call-modal" class="modal fixed top-0 left-0 w-full h-full flex items-center justify-center bg-black bg-opacity-50 hidden">
-            <div class="modal-content bg-white p-6 rounded-lg shadow-lg relative max-w-md w-full">
-              <div class="modal-header font-bold text-lg mb-4">Video Call with Counselor</div>
-              <div id="video-call-container" class="flex justify-center items-center">
-                <video id="user-video" class="w-48 h-48 border rounded" autoplay></video>
-                <video id="counselor-video" class="w-48 h-48 border rounded hidden" autoplay></video>
-              </div>
-              <div class="modal-footer flex justify-end mt-6">
-                <button class="btn-danger bg-red-500 text-white px-4 py-2 rounded" onclick="endVideoCall()">End Call</button>
-              </div>
-            </div>
-          </div>
 
           <!-- Modal for Creating New Appointment -->
           <div id="appointmentModal" class="modal fixed top-0 left-0 w-full h-full flex items-center justify-center bg-black bg-opacity-50 hidden">
