@@ -43,3 +43,50 @@ function saveAppointment() {
 flatpickr('#appointment-date', {
   dateFormat: 'Y-m-d',
 });
+
+  // Handle starting a chat with a counselor
+  let messageSent = false; // Track if a message is sent
+
+  // Show section logic
+  function showSection(section) {
+    const sections = document.querySelectorAll('.dashboard-section');
+    sections.forEach(sec => sec.classList.remove('active'));
+    document.getElementById(section).classList.add('active');
+  }
+  
+  // Handle starting a chat with a counselor
+  function startChat(counselorName) {
+    document.getElementById('chat-header').textContent = `Chat with ${counselorName}`;
+    // Optionally, you could load previous chat history here if needed
+  }
+  
+  // Handle sending messages in the chat
+  function sendMessage(event) {
+    if (event.key === 'Enter') {
+      const message = document.getElementById('chat-input').value;
+      if (message) {
+        messageSent = true; // Mark that a message was sent
+        const chatBox = document.getElementById('chat-box');
+        const newMessage = document.createElement('div');
+        newMessage.classList.add('message', 'sent');
+        newMessage.textContent = message;
+        chatBox.appendChild(newMessage);
+        document.getElementById('chat-input').value = ''; // Clear input
+        chatBox.scrollTop = chatBox.scrollHeight; // Scroll to the bottom
+        simulateCounselorResponse(); 
+      }
+    }
+  }
+  
+  function simulateCounselorResponse() {
+    if (messageSent) { // Ensure counselor responds only if a message was sent
+      setTimeout(() => {
+        const chatBox = document.getElementById('chat-box');
+        const newMessage = document.createElement('div');
+        newMessage.classList.add('message', 'received');
+        newMessage.textContent = 'Counselor: How are you feeling today?';
+        chatBox.appendChild(newMessage);
+        chatBox.scrollTop = chatBox.scrollHeight;
+      }, 2000); // Counselor responds 2 seconds after user sends a message
+    }
+  }
