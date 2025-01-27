@@ -12,39 +12,34 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-  // Function to open the modal and initialize Flatpickr
-  function openModal() {
-    const modal = document.getElementById("bookingModal");
-    modal.classList.remove("hidden"); // Show the modal
+function showSection(section) {
+  const sections = document.querySelectorAll('.dashboard-section');
+  sections.forEach(sec => sec.classList.remove('active'));
+  document.getElementById(section).classList.add('active');
+}
 
-    // Initialize Flatpickr dynamically
-    flatpickr("#calendar", {
-      altInput: true,
-      altFormat: "F j, Y",
-      dateFormat: "Y-m-d",
-      minDate: "today", // Disable past dates
-    });
+function openAppointmentModal() {
+  document.getElementById('appointmentModal').classList.add('active');
+}
+
+function closeAppointmentModal() {
+  document.getElementById('appointmentModal').classList.remove('active');
+}
+
+function saveAppointment() {
+  const date = document.getElementById('appointment-date').value;
+  const time = document.getElementById('appointment-time').value;
+  const counselor = document.getElementById('appointment-counselor').value;
+  const type = document.getElementById('appointment-type').value;
+
+  if (date && time && counselor && type) {
+    alert('Appointment Saved!');
+    closeAppointmentModal();
+  } else {
+    alert('Please fill in all fields.');
   }
+}
 
-   // Function to close the modal
-   function closeModal() {
-    const modal = document.getElementById("bookingModal");
-    modal.classList.add("hidden"); // Hide the modal
-
-    // Clear inputs
-    document.getElementById("calendar").value = "";
-    document.getElementById("time").value = "";
-  }
-
-  // Function to confirm the booking
-  function confirmBooking() {
-    const date = document.getElementById("calendar").value;
-    const time = document.getElementById("time").value;
-
-    if (date && time) {
-      alert(`Booking confirmed for ${date} at ${time}`);
-      closeModal();
-    } else {
-      alert("Please select both a date and time.");
-    }
-  }
+flatpickr('#appointment-date', {
+  dateFormat: 'Y-m-d',
+});

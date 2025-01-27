@@ -7,27 +7,26 @@
   <title>Patient & Counselor Dashboards</title>
   <link rel="stylesheet" href="assets/css/globals.css">
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <link href ="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/1.7.3/tailwind.min.css" rel="stylesheet">
-  <script src="assets/js/globals.js"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/1.7.3/tailwind.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  <script src="assets/js/globals.js"></script>
   <style>
-     .modal {
-    display: none;
-  }
+    .modal {
+      display: none;
+    }
 
-  .modal.active {
-    display: flex;
-  }
+    .modal.active {
+      display: flex;
+    }
   </style>
-  
 </head>
 
 <body class="bg-gray-100 font-sans">
   <div class="container mx-auto mt-8 p-4">
     <div class="dashboard-layout">
 
-      <!-- Navigation -->x
+      <!-- Navigation -->
       <nav class="dashboard-navigation">
         <h1>TrueGuidanceHub</h1>
         <button class="active" onclick="showSection('appointments')">Your Appointments</button>
@@ -82,7 +81,7 @@
               </tbody>
             </table>
 
-            <button id="new-appointment-btn" class="btn-primary mt-4">Create New Appointment</button>
+            <button id="new-appointment-btn" class="btn-primary mt-4" onclick="openAppointmentModal()">Create New Appointment</button>
 
             <h3 class="font-bold mt-8 mb-2">Appointment History</h3>
             <table>
@@ -110,6 +109,44 @@
               </tbody>
             </table>
           </section>
+
+          <!-- Modal for Creating New Appointment -->
+          <div id="appointmentModal" class="modal fixed top-0 left-0 w-full h-full flex items-center justify-center bg-black bg-opacity-50 hidden">
+            <div class="modal-content bg-white p-6 rounded-lg shadow-lg relative max-w-md w-full">
+              <div class="modal-header font-bold text-lg mb-4">Schedule New Appointment</div>
+              <form id="appointmentForm">
+                <div>
+                  <label for="appointment-date" class="block font-semibold mb-2">Date:</label>
+                  <input id="appointment-date" type="text" placeholder="Select a date" class="form-control border rounded px-4 py-2 w-full"/>
+                </div>
+                <div class="mt-4">
+                  <label for="appointment-time" class="block font-semibold mb-2">Time:</label>
+                  <input id="appointment-time" type="time" class="form-control border rounded px-4 py-2 w-full"/>
+                </div>
+                <div class="mt-4">
+                  <label for="appointment-counselor" class="block font-semibold mb-2">Counselor:</label>
+                  <select id="appointment-counselor" class="form-control border rounded px-4 py-2 w-full">
+                    <option value="" disabled selected>Select Counselor</option>
+                    <option value="Dr. Smith">Dr. Smith</option>
+                    <option value="Dr. Adams">Dr. Adams</option>
+                    <option value="Dr. Brown">Dr. Brown</option>
+                  </select>
+                </div>
+                <div class="mt-4">
+                  <label for="appointment-type" class="block font-semibold mb-2">Type of Consultation:</label>
+                  <select id="appointment-type" class="form-control border rounded px-4 py-2 w-full">
+                    <option value="" disabled selected>Select Type</option>
+                    <option value="In-Person">In-Person</option>
+                    <option value="Telemedicine">Telemedicine</option>
+                  </select>
+                </div>
+                <div class="modal-footer flex justify-end mt-6">
+                  <button type="button" class="btn-primary bg-blue-500 text-white px-4 py-2 rounded mr-2" onclick="saveAppointment()">Save Appointment</button>
+                  <button type="button" class="btn-danger bg-gray-500 text-white px-4 py-2 rounded" onclick="closeAppointmentModal()">Cancel</button>
+                </div>
+              </form>
+            </div>
+          </div>
 
           <section id="counseling-reports" class="dashboard-section">
             <h2>Counseling Reports</h2>
@@ -166,12 +203,7 @@
 
           <section id="available-counselors" class="dashboard-section">
             <h2>Available Counselors</h2>
-            <input
-              type="text"
-              id="search-counselors"
-              class="w-full border rounded px-4 py-2 mb-4"
-              placeholder="Search counselors..."
-            />
+            <input type="text" id="search-counselors" class="w-full border rounded px-4 py-2 mb-4" placeholder="Search counselors..."/>
             <table>
               <thead>
                 <tr>
@@ -187,33 +219,19 @@
                   <td>Stress Management</td>
                   <td>$50/hr</td>
                   <td>
-                    <button
-                      class="btn-primary bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700" onclick="openModal()"
->
-                      Book
-                    </button>
+                    <button class="btn-primary bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700" onclick="openBookingModal()">Book</button>
                   </td>
                 </tr>
               </tbody>
             </table>
-            
+
             <!-- Modal for Calendar -->
-            <div
-              id="bookingModal"
-              class="modal fixed top-0 left-0 w-full h-full flex items-center justify-center bg-black bg-opacity-50 hidden"
-            >
-              <div
-                class="modal-content bg-white p-6 rounded-lg shadow-lg relative max-w-md w-full"
-              >
+            <div id="bookingModal" class="modal fixed top-0 left-0 w-full h-full flex items-center justify-center bg-black bg-opacity-50 hidden">
+              <div class="modal-content bg-white p-6 rounded-lg shadow-lg relative max-w-md w-full">
                 <div class="modal-header font-bold text-lg mb-4">Choose Date and Time</div>
                 <div>
                   <label for="calendar" class="block font-semibold mb-2">Select Date:</label>
-                  <input
-                    id="calendar"
-                    type="text"
-                    placeholder="Choose a date"
-                    class="form-control border rounded px-4 py-2 w-full"
-                  />
+                  <input id="calendar" type="text" placeholder="Choose a date" class="form-control border rounded px-4 py-2 w-full"/>
                 </div>
                 <div class="mt-4">
                   <label for="time" class="block font-semibold mb-2">Select Time:</label>
@@ -227,91 +245,21 @@
                   </select>
                 </div>
                 <div class="modal-footer flex justify-end mt-6">
-                  <button
-                    class="btn-primary bg-blue-500 text-white px-4 py-2 rounded mr-2"
-                    onclick="confirmBooking()"
-                  >
-                    Confirm
-                  </button>
-                  <button
-                    class="btn-danger bg-gray-500 text-white px-4 py-2 rounded"
-                    onclick="closeModal()"
-                  >
-                    Cancel
-                  </button>
+                  <button class="btn-primary bg-blue-500 text-white px-4 py-2 rounded mr-2" onclick="bookCounselor()">Book</button>
+                  <button class="btn-danger bg-gray-500 text-white px-4 py-2 rounded" onclick="closeBookingModal()">Cancel</button>
                 </div>
               </div>
             </div>
-            </section>
+          </section>
+
+          <!-- Profile Section -->
           <section id="user-profile" class="dashboard-section">
-            <h2>User Profile</h2>
-            <div class="mb-4">
-              <h3 class="
-              <h3 class="font-bold mb-4">Personal Information</h3>
-              <div class="flex flex-col gap-4">
-                <div class="flex items-center">
-                  <label class="w-40 font-bold">Full Name:</label>
-                  <p id="profile-full-name">John Doe</p>
-                </div>
-                <div class="flex items-center">
-                  <label class="w-40 font-bold">Gender:</label>
-                  <p id="profile-gender">Male</p>
-                </div>
-                <div class="flex items-center">
-                  <label class="w-40 font-bold">Age:</label>
-                  <p id="profile-age">30</p>
-                </div>
-                <div class="flex items-center">
-                  <label class="w-40 font-bold">Telephone Number:</label>
-                  <p id="profile-phone">+256754567890</p>
-                </div>
-                <div class="flex items-center">
-                  <label class="w-40 font-bold">Nationality:</label>
-                  <p id="profile-nationality">Ugandan</p>
-                </div>
-              </div>
-
-              <h3 class="font-bold mt-6 mb-4">Edit Profile</h3>
-              <form id="edit-profile-form" class="flex flex-col gap-4">
-                <div class="flex flex-col">
-                  <label for="edit-phone" class="font-bold">Telephone Number</label>
-                  <input type="text" id="edit-phone" class="border rounded px-4 py-2" value="+256754567890">
-                </div>
-                <div class="flex flex-col">
-                  <label for="edit-language" class="font-bold">Preferred Language</label>
-                  <select id="edit-language" class="border rounded px-4 py-2">
-                    <option value="english">English</option>
-                    <option value="spanish">Spanish</option>
-                    <option value="french">French</option>
-                  </select>
-                </div>
-                <div class="flex flex-col">
-                  <label for="edit-notifications" class="font-bold">Notification Preferences</label>
-                  <select id="edit-notifications" class="border rounded px-4 py-2">
-                    <option value="email">Email</option>
-                    <option value="sms">SMS</option>
-                    <option value="both">Both</option>
-                  </select>
-                </div>
-                <button type="button" class="btn-primary mt-4" onclick="saveProfileChanges()">Save Changes</button>
-              </form>
-
-              <h3 class="font-bold mt-6 mb-4">Change Password</h3>
-              <form id="change-password-form" class="flex flex-col gap-4">
-                <div class="flex flex-col">
-                  <label for="current-password" class="font-bold">Current Password</label>
-                  <input type="password" id="current-password" class="border rounded px-4 py-2">
-                </div>
-                <div class="flex flex-col">
-                  <label for="new-password" class="font-bold">New Password</label>
-                  <input type="password" id="new-password" class="border rounded px-4 py-2">
-                </div>
-                <div class="flex flex-col">
-                  <label for="confirm-password" class="font-bold">Confirm New Password</label>
-                  <input type="password" id="confirm-password" class="border rounded px-4 py-2">
-                </div>
-                <button type="button" class="btn-primary mt-4" onclick="changeUserPassword()">Change Password</button>
-              </form>
+            <h2>Your Profile</h2>
+            <div class="profile-info">
+              <p><strong>Name:</strong> Jane Doe</p>
+              <p><strong>Email:</strong> janedoe@example.com</p>
+              <p><strong>Phone:</strong> +1234567890</p>
+              <button class="btn-primary mt-4" onclick="editProfile()">Edit Profile</button>
             </div>
           </section>
         </div>
@@ -319,40 +267,8 @@
     </div>
   </div>
 
-  
-
   <script>
-    // Toggle section visibility
-    function showSection(sectionId) {
-      document.querySelectorAll('.dashboard-section').forEach(section => {
-        section.classList.remove('active');
-      });
-      document.getElementById(sectionId).classList.add('active');
-    }
-
-    function saveProfileChanges() {
-      const phone = document.getElementById('edit-phone').value;
-      const language = document.getElementById('edit-language').value;
-      const notifications = document.getElementById('edit-notifications').value;
-
-      alert(`Changes Saved:\nPhone: ${phone}\nLanguage: ${language}\nNotifications: ${notifications}`);
-    }
-
-    function changeUserPassword() {
-      const currentPassword = document.getElementById('current-password').value;
-      const newPassword = document.getElementById('new-password').value;
-      const confirmPassword = document.getElementById('confirm-password').value;
-
-      if (newPassword !== confirmPassword) {
-        alert("New passwords do not match!");
-        return;
-      }
-
-      alert("Password changed successfully!");
-    }
-  </script>
-
-  
+     </script>
 </body>
 
 </html>
