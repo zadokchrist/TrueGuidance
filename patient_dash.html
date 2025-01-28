@@ -19,91 +19,258 @@
     .modal.active {
       display: flex;
     }
-
-    .dashboard-navigation {
-      flex-direction: column;
-    }
-
-    @media (min-width: 768px) {
-      .dashboard-navigation {
-        flex-direction: row;
-      }
-    }
   </style>
 </head>
 
 <body class="bg-gray-100 font-sans">
-  <div class="container mx-auto mt-8 px-4">
-    <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+  <div class="container mx-auto mt-8 p-4">
+    <div class="dashboard-layout">
+
       <!-- Navigation -->
-      <nav class="dashboard-navigation bg-white p-4 rounded-lg shadow md:col-span-1">
-        <h1 class="text-xl font-bold mb-4">TrueGuidanceHub</h1>
-        <button class="w-full py-2 text-left hover:bg-gray-200" onclick="showSection('appointments')">Your Appointments</button>
-        <button class="w-full py-2 text-left hover:bg-gray-200" onclick="showSection('counseling-reports')">Counseling Reports</button>
-        <button class="w-full py-2 text-left hover:bg-gray-200" onclick="showSection('payments')">Your Payments</button>
-        <button class="w-full py-2 text-left hover:bg-gray-200" onclick="showSection('available-counselors')">Available Counselors</button>
-        <button class="w-full py-2 text-left hover:bg-gray-200" onclick="showSection('user-profile')">User Profile</button>
+      <nav class="dashboard-navigation">
+        <h1>TrueGuidanceHub</h1>
+        <button class="active" onclick="showSection('appointments')">Your Appointments</button>
+        <button onclick="showSection('counseling-reports')">Counseling Reports</button>
+        <button onclick="showSection('payments')">Your Payments</button>
+        <button onclick="showSection('available-counselors')">Available Counselors</button>
+        <button onclick="showSection('user-profile')">User Profile</button>
       </nav>
 
       <!-- Content -->
-      <div class="content-area bg-white p-4 rounded-lg shadow md:col-span-3">
-        <header class="flex flex-wrap items-center justify-between mb-4">
+      <div class="content-area">
+        <div class="fixed-header">
           <h1 class="text-2xl font-bold">Welcome to Your Dashboard</h1>
-          <div class="profile-dropdown relative">
-            <button class="font-semibold">Profile</button>
-            <div class="profile-dropdown-content absolute right-0 mt-2 bg-white shadow rounded hidden">
-              <a href="#" class="block px-4 py-2 hover:bg-gray-100">Settings</a>
-              <a href="#" class="block px-4 py-2 hover:bg-gray-100">Logout</a>
+          <div class="profile-dropdown">
+            <span class="cursor-pointer font-semibold">Profile</span>
+            <div class="profile-dropdown-content">
+              <a href="#">Settings</a>
+              <a href="#">Logout</a>
             </div>
           </div>
-        </header>
-
-        <section id="appointments" class="dashboard-section">
-          <h2 class="text-lg font-bold mb-4">Your Appointments</h2>
-          <div class="overflow-x-auto">
-            <table class="table-auto w-full text-left border-collapse border border-gray-300">
+        </div>
+        <div style="margin-top: 80px;">
+          <!-- Appointment Management -->
+          <section id="appointments" class="dashboard-section active">
+            <h2>Your Appointments</h2>
+            <h3 class="font-bold mb-2">Upcoming Appointments</h3>
+            <table>
               <thead>
-                <tr class="bg-gray-100">
-                  <th class="border p-2">Date</th>
-                  <th class="border p-2">Time</th>
-                  <th class="border p-2">Counselor/Doctor</th>
-                  <th class="border p-2">Location</th>
-                  <th class="border p-2">Status</th>
-                  <th class="border p-2">Chat</th>
+                <tr>
+                  <th>Date</th>
+                  <th>Time</th>
+                  <th>Counselor/Doctor</th>
+                  <th>Location</th>
+                  <th>Status</th>
+                  <th>Chat</th> <!-- Add a column for the chat button -->
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td class="border p-2">Feb 1</td>
-                  <td class="border p-2">10:00 AM</td>
-                  <td class="border p-2">Dr. Smith</td>
-                  <td class="border p-2">Room 101</td>
-                  <td class="border p-2">Confirmed</td>
-                  <td class="border p-2"><button class="btn-primary" onclick="startChat('Dr. Smith')">Chat</button></td>
+                  <td>Feb 1</td>
+                  <td>10:00 AM</td>
+                  <td>Dr. Smith</td>
+                  <td>Room 101</td>
+                  <td>Confirmed</td>
+                  <td><button class="btn-primary" onclick="startChat('Dr. Smith')">Chat</button></td>
+                </tr>
+                <tr>
+                  <td>Feb 3</td>
+                  <td>2:00 PM</td>
+                  <td>Dr. Adams</td>
+                  <td>Room 202</td>
+                  <td>Pending</td>
+                  <td><button class="btn-primary" onclick="startChat('Dr. Adams')">Chat</button></td>
                 </tr>
               </tbody>
             </table>
-          </div>
-        </section>
+            <!-- Chat Section (Always Visible) -->
+          <section id="chat-section" class="chat-section fixed bottom-4 right-4 w-96 p-4 bg-white shadow-lg rounded-lg z-50">
+            <div class="chat-header" id="chat-header">Chat with Counselor</div>
+            <div class="chat-box" id="chat-box">
+              <!-- Chat messages will appear here -->
+            </div>
+            <input type="text" class="chat-input" id="chat-input" placeholder="Type a message..." onkeypress="sendMessage(event)" />
+          </section>
+                  
+            <button id="new-appointment-btn" class="btn-primary mt-4" onclick="openAppointmentModal()">Create New Appointment</button>
+          
+            <h3 class="font-bold mt-8 mb-2">Appointment History</h3>
+            <table>
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>Time</th>
+                  <th>Counselor/Doctor</th>
+                  <th>Outcome</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Jan 20</td>
+                  <td>1:00 PM</td>
+                  <td>Dr. Brown</td>
+                  <td>Completed</td>
+                </tr>
+                <tr>
+                  <td>Jan 18</td>
+                  <td>3:00 PM</td>
+                  <td>Dr. Taylor</td>
+                  <td>Follow-Up Required</td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+          
 
-        <!-- Modal for Appointment -->
-        <div id="appointmentModal" class="modal fixed top-0 left-0 w-full h-full flex items-center justify-center bg-black bg-opacity-50 hidden">
-          <div class="modal-content bg-white p-4 rounded-lg shadow w-11/12 sm:max-w-lg">
-            <h3 class="text-lg font-bold mb-4">Schedule New Appointment</h3>
-            <form id="appointmentForm">
+          <!-- Chat Section -->
+          <section id="chat-section" class="dashboard-section hidden">
+            <div class="chat-header">Chat with Counselor</div>
+            <div class="chat-box" id="chat-box">
+              <!-- Chat messages will appear here -->
+            </div>
+            <input type="text" class="chat-input" id="chat-input" placeholder="Type a message..." onkeypress="sendMessage(event)" />
+          </section>
+
+          <!-- Modal for Creating New Appointment -->
+          <div id="appointmentModal" class="modal fixed top-0 left-0 w-full h-full flex items-center justify-center bg-black bg-opacity-50 hidden">
+            <div class="modal-content bg-white p-6 rounded-lg shadow-lg relative max-w-md w-full">
+              <div class="modal-header font-bold text-lg mb-4">Schedule New Appointment</div>
+              <form id="appointmentForm">
+                <div>
+                  <label for="appointment-date" class="block font-semibold mb-2">Date:</label>
+                  <input id="appointment-date" type="text" placeholder="Select a date" class="form-control border rounded px-4 py-2 w-full"/>
+                </div>
+                <div class="mt-4">
+                  <label for="appointment-time" class="block font-semibold mb-2">Time:</label>
+                  <input id="appointment-time" type="time" class="form-control border rounded px-4 py-2 w-full"/>
+                </div>
+                <div class="mt-4">
+                  <label for="appointment-counselor" class="block font-semibold mb-2">Counselor:</label>
+                  <select id="appointment-counselor" class="form-control border rounded px-4 py-2 w-full">
+                    <option value="" disabled selected>Select Counselor</option>
+                    <option value="Dr. Smith">Dr. Smith</option>
+                    <option value="Dr. Adams">Dr. Adams</option>
+                    <option value="Dr. Brown">Dr. Brown</option>
+                  </select>
+                </div>
+                <div class="mt-4">
+                  <label for="appointment-type" class="block font-semibold mb-2">Type of Consultation:</label>
+                  <select id="appointment-type" class="form-control border rounded px-4 py-2 w-full">
+                    <option value="" disabled selected>Select Type</option>
+                    <option value="In-Person">In-Person</option>
+                    <option value="Telemedicine">Telemedicine</option>
+                  </select>
+                </div>
+                <div class="modal-footer flex justify-end mt-6">
+                  <button type="button" class="btn-primary bg-blue-500 text-white px-4 py-2 rounded mr-2" onclick="saveAppointment()">Save Appointment</button>
+                  <button type="button" class="btn-danger bg-gray-500 text-white px-4 py-2 rounded" onclick="closeAppointmentModal()">Cancel</button>
+                </div>
+              </form>
+            </div>
+          </div>
+
+          <section id="counseling-reports" class="dashboard-section">
+            <h2>Counseling Reports</h2>
+            <table>
+              <thead>
+                <tr>
+                  <th>Report</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Session Report #1</td>
+                  <td>
+                    <button class="btn-primary" onclick="viewReport('Session Report #1')">View</button>
+                    <button class="btn-primary" onclick="printReport('Session Report #1')">Print</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Session Report #2</td>
+                  <td>
+                    <button class="btn-primary" onclick="viewReport('Session Report #2')">View</button>
+                    <button class="btn-primary" onclick="printReport('Session Report #2')">Print</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+
+          <section id="payments" class="dashboard-section">
+            <h2>Your Payments</h2>
+            <table>
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>Amount</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Jan 25</td>
+                  <td>$150</td>
+                  <td id="payment-status" onclick="enableChat()">Completed</td>
+                </tr>
+                <tr>
+                  <td>Jan 15</td>
+                  <td>$100</td>
+                  <td>Completed</td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+
+          <section id="available-counselors" class="dashboard-section">
+            <h2>Available Counselors</h2>
+            <input type="text" id="search-counselors" class="w-full border rounded px-4 py-2 mb-4" placeholder="Search counselors..."/>
+            <table>
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Specialization</th>
+                  <th>Rate</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody id="counselor-list">
+                <tr>
+                  <td>John Doe</td>
+                  <td>Stress Management</td>
+                  <td>$50/hr</td>
+                  <td>
+                    <button class="btn-primary bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700" onclick="openBookingModal()">Book</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+
+          <!-- Modal for Calendar -->
+          <div id="bookingModal" class="modal fixed top-0 left-0 w-full h-full flex items-center justify-center bg-black bg-opacity-50 hidden">
+            <div class="modal-content bg-white p-6 rounded-lg shadow-lg relative max-w-md w-full">
+              <div class="modal-header font-bold text-lg mb-4">Choose Date and Time</div>
               <div>
-                <label for="appointment-date" class="block text-sm font-medium mb-2">Date:</label>
-                <input id="appointment-date" type="text" placeholder="Select a date" class="w-full px-3 py-2 border rounded-lg"/>
+                <label for="calendar" class="block font-semibold mb-2">Select Date:</label>
+                <input id="calendar" type="text" placeholder="Choose a date" class="form-control border rounded px-4 py-2 w-full"/>
               </div>
               <div class="mt-4">
-                <label for="appointment-time" class="block text-sm font-medium mb-2">Time:</label>
-                <input id="appointment-time" type="time" class="w-full px-3 py-2 border rounded-lg"/>
+                <label for="time" class="block font-semibold mb-2">Select Time:</label>
+                <select id="time" class="form-control border rounded px-4 py-2 w-full">
+                  <option value="" disabled selected>Select Time</option>
+                  <option value="10:00 AM">10:00 AM</option>
+                  <option value="11:00 AM">11:00 AM</option>
+                  <option value="12:00 PM">12:00 PM</option>
+                  <option value="1:00 PM">1:00 PM</option>
+                  <option value="2:00 PM">2:00 PM</option>
+                </select>
               </div>
-              <div class="mt-4 flex justify-end">
-                <button type="button" class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600" onclick="saveAppointment()">Save</button>
-                <button type="button" class="px-4 py-2 bg-gray-500 text-white rounded ml-2 hover:bg-gray-600" onclick="closeAppointmentModal()">Cancel</button>
+              <div class="modal-footer flex justify-end mt-6">
+                <button class="btn-primary bg-blue-500 text-white px-4 py-2 rounded mr-2" onclick="bookCounselor()">Book</button>
+                <button class="btn-danger bg-gray-500 text-white px-4 py-2 rounded" onclick="closeBookingModal()">Cancel</button>
               </div>
-            </form>
+            </div>
           </div>
         </div>
       </div>
@@ -111,9 +278,40 @@
   </div>
 
   <script>
-    // JavaScript remains the same as in your original code.
+    // Show section logic
+    function showSection(section) {
+      const sections = document.querySelectorAll('.dashboard-section');
+      sections.forEach(sec => sec.classList.remove('active'));
+      document.getElementById(section).classList.add('active');
+    }
+
+    // Open appointment modal
+    function openAppointmentModal() {
+      document.getElementById('appointmentModal').classList.add('active');
+    }
+
+    // Close appointment modal
+    function closeAppointmentModal() {
+      document.getElementById('appointmentModal').classList.remove('active');
+    }
+
+    // Save new appointment
+    function saveAppointment() {
+      const date = document.getElementById('appointment-date').value;
+      const time = document.getElementById('appointment-time').value;
+      const counselor = document.getElementById('appointment-counselor').value;
+      const type = document.getElementById('appointment-type').value;
+
+      if (date && time && counselor && type) {
+        alert('Appointment Saved!');
+        closeAppointmentModal();
+      } else {
+        alert('Please fill in all fields.');
+      }
+    }
+
+   
   </script>
 </body>
 
 </html>
-
