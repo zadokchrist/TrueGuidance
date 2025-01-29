@@ -1,11 +1,3 @@
-// ==================================================
-// * Project Name   :  Talking Minds – Psychotherapist Site Template
-// * File           :  JS Base
-// * Version        :  1.0.0
-// * Last change    :  19 August 2023, Saturday
-// * Author         :  Merkulove (https://1.envato.market/tf-merkulove)
-// ==================================================
-
 (function($) {
   "use strict";
 
@@ -183,6 +175,22 @@
   });
 
   // Carousels - End
+  // --------------------------------------------------
+
+  // Mobile Menu Toggle - Start
+  // --------------------------------------------------
+  $(document).ready(function() {
+    $('.mobile_menu_btn').on('click', function() {
+      $('#main_menu_dropdown').collapse('toggle');
+    });
+    $('#main_menu_dropdown').on('hide.bs.collapse', function () {
+      $('.mobile_menu_btn i').removeClass('fa-times').addClass('fa-bars');
+    });
+    $('#main_menu_dropdown').on('show.bs.collapse', function () {
+      $('.mobile_menu_btn i').removeClass('fa-bars').addClass('fa-times');
+    });
+  });
+  // Mobile Menu Toggle - End
   // --------------------------------------------------
 
 })(jQuery);
