@@ -19,116 +19,219 @@
     .modal.active {
       display: flex;
     }
+
+    @media (max-width: 768px) {
+      .dashboard-navigation {
+        width: 100%;
+        height: auto;
+        position: relative;
+      }
+
+      .dashboard-layout {
+        flex-direction: column;
+      }
+
+      .content-area {
+        margin-left: 0;
+        max-width: 100%;
+      }
+
+      .fixed-header {
+        left: 0;
+        width: 100%;
+      }
+
+      .table-responsive {
+        overflow-x: auto;
+      }
+    }
   </style>
 </head>
 
 <body class="bg-gray-100 font-sans">
   <div class="container mx-auto mt-8 p-4">
-    <div class="dashboard-layout">
+    <div class="dashboard-layout flex flex-col lg:flex-row gap-4">
 
       <!-- Navigation -->
-      <nav class="dashboard-navigation">
-        <h1>TrueGuidanceHub</h1>
-        <button class="active" onclick="showSection('appointments')">Your Appointments</button>
-        <button onclick="showSection('counseling-reports')">Counseling Reports</button>
-        <button onclick="showSection('payments')">Your Payments</button>
-        <button onclick="showSection('available-counselors')">Available Counselors</button>
-        <button onclick="showSection('user-profile')">User Profile</button>
+      <nav class="dashboard-navigation bg-cover bg-center p-4 opacity-90 z-10 lg:fixed lg:top-0 lg:left-0 lg:w-72 lg:h-full lg:opacity-100" style="background-image: url('https://images3.alphacoders.com/132/1323579.png');">
+        <h1 class="text-white text-xl font-bold mb-4">TrueGuidanceHub</h1>
+        <button class="lg:hidden text-white font-bold mb-2" onclick="toggleMenu()">Menu</button>
+        <div id="nav-buttons" class="hidden lg:block">
+          <button class="active text-white font-bold mb-2" onclick="showSection('appointments')">Your Appointments</button>
+          <button class="text-white font-bold mb-2" onclick="showSection('counseling-reports')">Counseling Reports</button>
+          <button class="text-white font-bold mb-2" onclick="showSection('payments')">Your Payments</button>
+          <button class="text-white font-bold mb-2" onclick="showSection('available-counselors')">Available Counselors</button>
+          <button class="text-white font-bold mb-2" onclick="showSection('user-profile')">User Profile</button>
+        </div>
       </nav>
 
       <!-- Content -->
-      <div class="content-area">
-        <div class="fixed-header">
+      <div class="content-area flex-grow lg:ml-72">
+        <div class="fixed-header bg-white shadow-md p-4 flex justify-between items-center lg:fixed lg:top-0 lg:left-72 lg:w-auto">
           <h1 class="text-2xl font-bold">Welcome to Your Dashboard</h1>
-          <div class="profile-dropdown">
+          <div class="profile-dropdown relative">
             <span class="cursor-pointer font-semibold">Profile</span>
-            <div class="profile-dropdown-content">
-              <a href="#">Settings</a>
-              <a href="#">Logout</a>
+            <div class="profile-dropdown-content absolute right-0 bg-white shadow-md rounded-lg mt-2 hidden">
+              <a href="#" class="block px-4 py-2 text-gray-700">Settings</a>
+              <a href="#" class="block px-4 py-2 text-gray-700">Logout</a>
             </div>
           </div>
         </div>
-        <div style="margin-top: 80px;">
+        <div class="mt-20 lg:mt-24">
+
           <!-- Appointment Management -->
           <section id="appointments" class="dashboard-section active">
-            <h2>Your Appointments</h2>
+            <h2 class="text-2xl font-bold mb-4">Your Appointments</h2>
             <h3 class="font-bold mb-2">Upcoming Appointments</h3>
-            <table>
-              <thead>
-                <tr>
-                  <th>Date</th>
-                  <th>Time</th>
-                  <th>Counselor/Doctor</th>
-                  <th>Location</th>
-                  <th>Status</th>
-                  <th>Chat</th> <!-- Add a column for the chat button -->
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Feb 1</td>
-                  <td>10:00 AM</td>
-                  <td>Dr. Smith</td>
-                  <td>Room 101</td>
-                  <td>Confirmed</td>
-                  <td><button class="btn-primary" onclick="startChat('Dr. Smith')">Chat</button></td>
-                </tr>
-                <tr>
-                  <td>Feb 3</td>
-                  <td>2:00 PM</td>
-                  <td>Dr. Adams</td>
-                  <td>Room 202</td>
-                  <td>Pending</td>
-                  <td><button class="btn-primary" onclick="startChat('Dr. Adams')">Chat</button></td>
-                </tr>
-              </tbody>
-            </table>
-            <!-- Chat Section (Always Visible) -->
-          <section id="chat-section" class="chat-section fixed bottom-4 right-4 w-96 p-4 bg-white shadow-lg rounded-lg z-50">
-            <div class="chat-header" id="chat-header">Chat with Counselor</div>
-            <div class="chat-box" id="chat-box">
-              <!-- Chat messages will appear here -->
+            <div class="table-responsive">
+              <table class="w-full border-collapse">
+                <thead>
+                  <tr>
+                    <th class="border px-4 py-2">Date</th>
+                    <th class="border px-4 py-2">Time</th>
+                    <th class="border px-4 py-2">Counselor/Doctor</th>
+                    <th class="border px-4 py-2">Location</th>
+                    <th class="border px-4 py-2">Status</th>
+                    <th class="border px-4 py-2">Chat</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="border px-4 py-2">Feb 1</td>
+                    <td class="border px-4 py-2">10:00 AM</td>
+                    <td class="border px-4 py-2">Dr. Smith</td>
+                    <td class="border px-4 py-2">Room 101</td>
+                    <td class="border px-4 py-2">Confirmed</td>
+                    <td class="border px-4 py-2"><button class="btn-primary" onclick="startChat('Dr. Smith')">Chat</button></td>
+                  </tr>
+                  <tr>
+                    <td class="border px-4 py-2">Feb 3</td>
+                    <td class="border px-4 py-2">2:00 PM</td>
+                    <td class="border px-4 py-2">Dr. Adams</td>
+                    <td class="border px-4 py-2">Room 202</td>
+                    <td class="border px-4 py-2">Pending</td>
+                    <td class="border px-4 py-2"><button class="btn-primary" onclick="startChat('Dr. Adams')">Chat</button></td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
-            <input type="text" class="chat-input" id="chat-input" placeholder="Type a message..." onkeypress="sendMessage(event)" />
-          </section>
-                  
-            <button id="new-appointment-btn" class="btn-primary mt-4" onclick="openAppointmentModal()">Create New Appointment</button>
-          
-            <h3 class="font-bold mt-8 mb-2">Appointment History</h3>
-            <table>
-              <thead>
-                <tr>
-                  <th>Date</th>
-                  <th>Time</th>
-                  <th>Counselor/Doctor</th>
-                  <th>Outcome</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Jan 20</td>
-                  <td>1:00 PM</td>
-                  <td>Dr. Brown</td>
-                  <td>Completed</td>
-                </tr>
-                <tr>
-                  <td>Jan 18</td>
-                  <td>3:00 PM</td>
-                  <td>Dr. Taylor</td>
-                  <td>Follow-Up Required</td>
-                </tr>
-              </tbody>
-            </table>
-          </section>
-          
 
-          <!-- Chat Section -->
-          <section id="chat-section" class="dashboard-section hidden">
-            <div class="chat-header">Chat with Counselor</div>
-            <div class="chat-box" id="chat-box">
-              <!-- Chat messages will appear here -->
+            <button id="new-appointment-btn" class="btn-primary mt-4" onclick="openAppointmentModal()">Create New Appointment</button>
+
+            <h3 class="font-bold mt-8 mb-2">Appointment History</h3>
+            <div class="table-responsive">
+              <table class="w-full border-collapse">
+                <thead>
+                  <tr>
+                    <th class="border px-4 py-2">Date</th>
+                    <th class="border px-4 py-2">Time</th>
+                    <th class="border px-4 py-2">Counselor/Doctor</th>
+                    <th class="border px-4 py-2">Outcome</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="border px-4 py-2">Jan 20</td>
+                    <td class="border px-4 py-2">1:00 PM</td>
+                    <td class="border px-4 py-2">Dr. Brown</td>
+                    <td class="border px-4 py-2">Completed</td>
+                  </tr>
+                  <tr>
+                    <td class="border px-4 py-2">Jan 18</td>
+                    <td class="border px-4 py-2">3:00 PM</td>
+                    <td class="border px-4 py-2">Dr. Taylor</td>
+                    <td class="border px-4 py-2">Follow-Up Required</td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
-            <input type="text" class="chat-input" id="chat-input" placeholder="Type a message..." onkeypress="sendMessage(event)" />
+          </section>
+
+          <!-- Counseling Reports -->
+          <section id="counseling-reports" class="dashboard-section hidden">
+            <h2 class="text-2xl font-bold mb-4">Counseling Reports</h2>
+            <div class="table-responsive">
+              <table class="w-full border-collapse">
+                <thead>
+                  <tr>
+                    <th class="border px-4 py-2">Report</th>
+                    <th class="border px-4 py-2">Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="border px-4 py-2">Session Report #1</td>
+                    <td class="border px-4 py-2">
+                      <button class="btn-primary" onclick="viewReport('Session Report #1')">View</button>
+                      <button class="btn-primary" onclick="printReport('Session Report #1')">Print</button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="border px-4 py-2">Session Report #2</td>
+                    <td class="border px-4 py-2">
+                      <button class="btn-primary" onclick="viewReport('Session Report #2')">View</button>
+                      <button class="btn-primary" onclick="printReport('Session Report #2')">Print</button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <!-- Payments -->
+          <section id="payments" class="dashboard-section hidden">
+            <h2 class="text-2xl font-bold mb-4">Your Payments</h2>
+            <div class="table-responsive">
+              <table class="w-full border-collapse">
+                <thead>
+                  <tr>
+                    <th class="border px-4 py-2">Date</th>
+                    <th class="border px-4 py-2">Amount</th>
+                    <th class="border px-4 py-2">Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="border px-4 py-2">Jan 25</td>
+                    <td class="border px-4 py-2">$150</td>
+                    <td class="border px-4 py-2">Completed</td>
+                  </tr>
+                  <tr>
+                    <td class="border px-4 py-2">Jan 15</td>
+                    <td class="border px-4 py-2">$100</td>
+                    <td class="border px-4 py-2">Completed</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <!-- Available Counselors -->
+          <section id="available-counselors" class="dashboard-section hidden">
+            <h2 class="text-2xl font-bold mb-4">Available Counselors</h2>
+            <input type="text" id="search-counselors" class="w-full border rounded px-4 py-2 mb-4" placeholder="Search counselors..."/>
+            <div class="table-responsive">
+              <table class="w-full border-collapse">
+                <thead>
+                  <tr>
+                    <th class="border px-4 py-2">Name</th>
+                    <th class="border px-4 py-2">Specialization</th>
+                    <th class="border px-4 py-2">Rate</th>
+                    <th class="border px-4 py-2">Action</th>
+                  </tr>
+                </thead>
+                <tbody id="counselor-list">
+                  <tr>
+                    <td class="border px-4 py-2">John Doe</td>
+                    <td class="border px-4 py-2">Stress Management</td>
+                    <td class="border px-4 py-2">$50/hr</td>
+                    <td class="border px-4 py-2">
+                      <button class="btn-primary bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700" onclick="openBookingModal()">Book</button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </section>
 
           <!-- Modal for Creating New Appointment -->
@@ -169,84 +272,6 @@
             </div>
           </div>
 
-          <section id="counseling-reports" class="dashboard-section">
-            <h2>Counseling Reports</h2>
-            <table>
-              <thead>
-                <tr>
-                  <th>Report</th>
-                  <th>Actions</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Session Report #1</td>
-                  <td>
-                    <button class="btn-primary" onclick="viewReport('Session Report #1')">View</button>
-                    <button class="btn-primary" onclick="printReport('Session Report #1')">Print</button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Session Report #2</td>
-                  <td>
-                    <button class="btn-primary" onclick="viewReport('Session Report #2')">View</button>
-                    <button class="btn-primary" onclick="printReport('Session Report #2')">Print</button>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </section>
-
-          <section id="payments" class="dashboard-section">
-            <h2>Your Payments</h2>
-            <table>
-              <thead>
-                <tr>
-                  <th>Date</th>
-                  <th>Amount</th>
-                  <th>Status</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Jan 25</td>
-                  <td>$150</td>
-                  <td id="payment-status" onclick="enableChat()">Completed</td>
-                </tr>
-                <tr>
-                  <td>Jan 15</td>
-                  <td>$100</td>
-                  <td>Completed</td>
-                </tr>
-              </tbody>
-            </table>
-          </section>
-
-          <section id="available-counselors" class="dashboard-section">
-            <h2>Available Counselors</h2>
-            <input type="text" id="search-counselors" class="w-full border rounded px-4 py-2 mb-4" placeholder="Search counselors..."/>
-            <table>
-              <thead>
-                <tr>
-                  <th>Name</th>
-                  <th>Specialization</th>
-                  <th>Rate</th>
-                  <th>Action</th>
-                </tr>
-              </thead>
-              <tbody id="counselor-list">
-                <tr>
-                  <td>John Doe</td>
-                  <td>Stress Management</td>
-                  <td>$50/hr</td>
-                  <td>
-                    <button class="btn-primary bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700" onclick="openBookingModal()">Book</button>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </section>
-
           <!-- Modal for Calendar -->
           <div id="bookingModal" class="modal fixed top-0 left-0 w-full h-full flex items-center justify-center bg-black bg-opacity-50 hidden">
             <div class="modal-content bg-white p-6 rounded-lg shadow-lg relative max-w-md w-full">
@@ -272,12 +297,19 @@
               </div>
             </div>
           </div>
+
         </div>
       </div>
     </div>
   </div>
 
   <script>
+    // Toggle menu
+    function toggleMenu() {
+      const navButtons = document.getElementById('nav-buttons');
+      navButtons.classList.toggle('hidden');
+    }
+
     // Show section logic
     function showSection(section) {
       const sections = document.querySelectorAll('.dashboard-section');
@@ -310,7 +342,28 @@
       }
     }
 
-   
+    // Open booking modal
+    function openBookingModal() {
+      document.getElementById('bookingModal').classList.add('active');
+    }
+
+    // Close booking modal
+    function closeBookingModal() {
+      document.getElementById('bookingModal').classList.remove('active');
+    }
+
+    // Book counselor
+    function bookCounselor() {
+      const date = document.getElementById('calendar').value;
+      const time = document.getElementById('time').value;
+
+      if (date && time) {
+        alert('Counselor Booked!');
+        closeBookingModal();
+      } else {
+        alert('Please select a date and time.');
+      }
+    }
   </script>
 </body>
 
