@@ -67,15 +67,43 @@
       height: 100%;
       overflow-y: auto;
     }
+
+    @media (max-width: 768px) {
+      .fixed-sidebar {
+        position: relative;
+        height: auto;
+        width: 100%;
+      }
+
+      .content-area {
+        margin-left: 0;
+      }
+
+      .toggle-menu {
+        display: block;
+      }
+
+      .sidebar-content {
+        display: none;
+      }
+
+      .sidebar-content.active {
+        display: block;
+      }
+
+      .table-responsive {
+        overflow-x: auto;
+      }
+    }
   </style>
 </head>
 
 <body class="bg-gray-100">
 
-  <div class="flex">
+  <div class="flex flex-col lg:flex-row">
 
     <!-- Sidebar -->
-    <nav class="relative bg-green-700 w-64 fixed-sidebar">
+    <nav class="relative bg-green-700 w-full lg:w-64 fixed-sidebar">
       <div class="sidebar-bg"></div>
       <div class="px-4 py-6 sidebar-content">
         <h1 class="text-white text-2xl font-bold mb-6">TrueGuidanceHub</h1>
@@ -87,10 +115,11 @@
           <a href="reports.html" class="block rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Reports</a>
         </div>
       </div>
+      <button class="toggle-menu lg:hidden text-white font-bold px-4 py-2" onclick="toggleSidebar()">Menu</button>
     </nav>
 
     <!-- Main Content Area -->
-    <div class="flex-1 flex flex-col ml-64">
+    <div class="flex-1 flex flex-col lg:ml-64">
 
       <!-- Top Navbar -->
       <header class="bg-white shadow flex justify-between items-center px-4 py-4">
@@ -100,145 +129,64 @@
 
       <main class="flex-1 overflow-y-auto">
         <div class="px-4 py-6 sm:px-6 lg:px-6 grid gap-4">
-          <div class="flex flex-wrap gap-5 items-start">
-            <div
-              class="flex overflow-hidden flex-col flex-1 shrink justify-center py-6 rounded-xl basis-0 bg-green-500 min-w-[240px]"
-            >
-              <div class="flex flex-col px-4 w-full">
-                <div
-                  class="flex gap-5 justify-between items-center w-full text-base font-medium text-white"
-                >
-                  <div class="self-stretch my-auto">New Appointment</div>
-                  <img
-                    loading="lazy"
-                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/e62a2f0dfe32fef272f88a4628802b0ead234b8276035d9390952bebe29b3f20?apiKey=5bf51c3fc9cb49b480a07670cbcd768f&&apiKey=5bf51c3fc9cb49b480a07670cbcd768f"
-                    class="object-contain shrink-0 self-stretch my-auto w-6 aspect-square"
-                  />
-                </div>
-                <div class="flex gap-5 justify-between items-end mt-4 w-full">
-                  <div class="text-2xl font-bold text-white">45</div>
-                  <div class="flex flex-col justify-center items-end">
-                    <div
-                      class="flex gap-1 items-start text-base text-lime-400 whitespace-nowrap"
-                    >
-                      <img
-                        loading="lazy"
-                        src="https://cdn.builder.io/api/v1/image/assets/TEMP/091860ec44b73a54c7470e24e512cc236cabf31f078be0317bd5a1465c08b71d?apiKey=5bf51c3fc9cb49b480a07670cbcd768f&&apiKey=5bf51c3fc9cb49b480a07670cbcd768f"
-                        class="object-contain shrink-0 w-6 aspect-square"
-                      />
-                      <div>10%</div>
-                    </div>
-                    <div class="text-sm text-white">From last month</div>
-                  </div>
-                </div>
+          <!-- Responsive Card Layout -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div class="card cursor-pointer" onclick="toggleCardDetails(event)">
+              <div class="card-header">
+                <h2 class="card-title">New Appointment</h2>
+              </div>
+              <div class="card-body">
+                <p class="card-text">You have 45 new appointments this month.</p>
+                <p class="card-text text-lime-400">+10% from last month</p>
+              </div>
+              <div class="card-details hidden p-4">
+                <p>Detail about new appointments.</p>
               </div>
             </div>
-            <div
-              class="flex overflow-hidden flex-col flex-1 shrink justify-center py-6 bg-white rounded-xl basis-0 min-w-[240px]"
-            >
-              <div class="flex flex-col px-4 w-full">
-                <div
-                  class="flex gap-5 justify-between items-center w-full text-base font-medium  text-slate-500"
-                >
-                  <div class="self-stretch my-auto">Pending payments</div>
-                  <img
-                    loading="lazy"
-                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/8250156c18eb8cc82ec07eb5b03e3e8142c2539e1b499528a7382360588ebbc5?apiKey=5bf51c3fc9cb49b480a07670cbcd768f&&apiKey=5bf51c3fc9cb49b480a07670cbcd768f"
-                    class="object-contain shrink-0 self-stretch my-auto w-6 aspect-square"
-                  />
-                </div>
-                <div
-                  class="flex gap-5 justify-between items-end mt-4 w-full min-h-[42px]"
-                >
-                  <div class="text-2xl font-bold text-neutral-600">20</div>
-                  <div class="flex flex-col justify-center items-end">
-                    <div
-                      class="flex gap-1 justify-center items-center text-base font-medium text-orange-400"
-                    >
-                      <img
-                        loading="lazy"
-                        src="https://cdn.builder.io/api/v1/image/assets/TEMP/be46e1a7ed4966df013c3ba35441c4141cd4ad44172d15fe22d8dbcaee3524fa?apiKey=5bf51c3fc9cb49b480a07670cbcd768f&&apiKey=5bf51c3fc9cb49b480a07670cbcd768f"
-                        class="object-contain shrink-0 self-stretch my-auto w-6 aspect-square"
-                      />
-                      <div class="self-stretch my-auto">5 Days</div>
-                    </div>
-                    <div class="text-sm text-neutral-400">Avg. pending</div>
-                  </div>
-                </div>
+            <div class="card cursor-pointer" onclick="toggleCardDetails(event)">
+              <div class="card-header">
+                <h2 class="card-title">Pending Payments</h2>
+              </div>
+              <div class="card-body">
+                <p class="card-text">20 payments are pending.</p>
+                <p class="card-text text-orange-400">5 days average pending</p>
+              </div>
+              <div class="card-details hidden p-4">
+                <p>Detail about pending payments.</p>
               </div>
             </div>
-            <div
-              class="flex overflow-hidden flex-col flex-1 shrink justify-center py-6 bg-blue-400 rounded-xl basis-0 min-w-[240px]"
-            >
-              <div class="flex flex-col px-4 w-full">
-                <div
-                  class="flex gap-5 justify-between items-center w-full text-base font-medium text-slate-500"
-                >
-                  <div class="self-stretch my-auto">Approved payments</div>
-                  <img
-                    loading="lazy"
-                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/8250156c18eb8cc82ec07eb5b03e3e8142c2539e1b499528a7382360588ebbc5?apiKey=5bf51c3fc9cb49b480a07670cbcd768f&&apiKey=5bf51c3fc9cb49b480a07670cbcd768f"
-                    class="object-contain shrink-0 self-stretch my-auto w-6 aspect-square"
-                  />
-                </div>
-                <div class="flex gap-5 justify-between items-end mt-4 w-full">
-                  <div class="text-2xl font-bold text-neutral-600">30</div>
-                  <div class="flex flex-col justify-center items-end">
-                    <div
-                      class="flex gap-1 items-start text-base text-lime-400 whitespace-nowrap"
-                    >
-                      <img
-                        loading="lazy"
-                        src="https://cdn.builder.io/api/v1/image/assets/TEMP/091860ec44b73a54c7470e24e512cc236cabf31f078be0317bd5a1465c08b71d?apiKey=5bf51c3fc9cb49b480a07670cbcd768f&&apiKey=5bf51c3fc9cb49b480a07670cbcd768f"
-                        class="object-contain shrink-0 w-6 aspect-square"
-                      />
-                      <div>15</div>
-                    </div>
-                    <div class="text-sm text-neutral-400">From last month</div>
-                  </div>
-                </div>
+            <div class="card cursor-pointer" onclick="toggleCardDetails(event)">
+              <div class="card-header">
+                <h2 class="card-title">Approved Payments</h2>
+              </div>
+              <div class="card-body">
+                <p class="card-text">30 payments approved.</p>
+                <p class="card-text text-lime-400">+15 from last month</p>
+              </div>
+              <div class="card-details hidden p-4">
+                <p>Detail about approved payments.</p>
               </div>
             </div>
-            <div
-              class="flex overflow-hidden flex-col flex-1 shrink justify-center py-6 bg-white rounded-xl basis-0 min-w-[240px]"
-            >
-              <div class="flex flex-col px-4 w-full">
-                <div
-                  class="flex gap-5 justify-between items-center w-full text-base font-medium text-slate-500"
-                >
-                  <div class="self-stretch my-auto">Pending Connections</div>
-                  <img
-                    loading="lazy"
-                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/8250156c18eb8cc82ec07eb5b03e3e8142c2539e1b499528a7382360588ebbc5?apiKey=5bf51c3fc9cb49b480a07670cbcd768f&&apiKey=5bf51c3fc9cb49b480a07670cbcd768f"
-                    class="object-contain shrink-0 self-stretch my-auto w-6 aspect-square"
-                  />
-                </div>
-                <div class="flex gap-5 justify-between items-end mt-4 w-full">
-                  <div class="text-2xl font-bold text-neutral-600">15</div>
-                  <div class="flex flex-col justify-center items-end">
-                    <div
-                      class="flex gap-1 justify-center items-center text-base font-medium text-orange-400"
-                    >
-                      <img
-                        loading="lazy"
-                        src="https://cdn.builder.io/api/v1/image/assets/TEMP/be46e1a7ed4966df013c3ba35441c4141cd4ad44172d15fe22d8dbcaee3524fa?apiKey=5bf51c3fc9cb49b480a07670cbcd768f&&apiKey=5bf51c3fc9cb49b480a07670cbcd768f"
-                        class="object-contain shrink-0 self-stretch my-auto w-6 aspect-square"
-                      />
-                      <div class="self-stretch my-auto">7 Days</div>
-                    </div>
-                    <div class="text-sm text-neutral-400">Avg. pending</div>
-                  </div>
-                </div>
+            <div class="card cursor-pointer" onclick="toggleCardDetails(event)">
+              <div class="card-header">
+                <h2 class="card-title">Pending Connections</h2>
+              </div>
+              <div class="card-body">
+                <p class="card-text">15 connections pending.</p>
+                <p class="card-text text-orange-400">7 days average pending</p>
+              </div>
+              <div class="card-details hidden p-4">
+                <p>Detail about pending connections.</p>
               </div>
             </div>
-            </div>
+          </div>
 
           <!-- Table 1: Appointments Today -->
-          <div class="card">
+          <div class="card mt-4">
             <div class="card-header">
               <h2 class="card-title">Appointments Today</h2>
             </div>
-            <div class="card-body">
+            <div class="card-body table-responsive">
               <table class="min-w-full bg-white">
                 <thead>
                   <tr>
@@ -274,11 +222,11 @@
           </div>
 
           <!-- Table 2: Upcoming Appointments -->
-          <div class="card">
+          <div class="card mt-4">
             <div class="card-header">
               <h2 class="card-title">Upcoming Appointments</h2>
             </div>
-            <div class="card-body">
+            <div class="card-body table-responsive">
               <table class="min-w-full bg-white">
                 <thead>
                   <tr>
@@ -318,11 +266,11 @@
           </div>
 
           <!-- Table 3: Client Stats -->
-          <div class="card">
+          <div class="card mt-4">
             <div class="card-header">
               <h2 class="card-title">Client Stats</h2>
             </div>
-            <div class="card-body">
+            <div class="card-body table-responsive">
               <table class="min-w-full bg-white">
                 <thead>
                   <tr>
@@ -362,6 +310,19 @@
     </div>
 
   </div>
+
+  <script>
+    function toggleSidebar() {
+      const sidebarContent = document.querySelector('.sidebar-content');
+      sidebarContent.classList.toggle('active');
+    }
+
+    function toggleCardDetails(event) {
+      const card = event.currentTarget;
+      const cardDetails = card.querySelector('.card-details');
+      cardDetails.classList.toggle('hidden');
+    }
+  </script>
 
 </body>
 
