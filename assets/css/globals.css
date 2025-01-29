@@ -247,3 +247,36 @@
     border-radius: 8px;
   }
   
+  .modal {
+    display: none;
+  }
+  
+  .modal.active {
+    display: flex;
+  }
+  
+  @media (max-width: 768px) {
+    .dashboard-navigation {
+      width: 100%;
+      height: auto;
+      position: relative;
+    }
+  
+    .dashboard-layout {
+      flex-direction: column;
+    }
+  
+    .content-area {
+      margin-left: 0;
+      max-width: 100%;
+    }
+  
+    .fixed-header {
+      left: 0;
+      width: 100%;
+    }
+  
+    .table-responsive {
+      overflow-x: auto;
+    }
+  }

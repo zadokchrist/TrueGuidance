@@ -4,49 +4,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Patient & Counselor Dashboards</title>
+  <title>Patient Dashboard</title>
   <link rel="stylesheet" href="assets/css/globals.css">
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/1.7.3/tailwind.min.css" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-  <script src="assets/js/globals.js"></script>
-  <style>
-    .modal {
-      display: none;
-    }
-
-    .modal.active {
-      display: flex;
-    }
-
-    @media (max-width: 768px) {
-      .dashboard-navigation {
-        width: 100%;
-        height: auto;
-        position: relative;
-      }
-
-      .dashboard-layout {
-        flex-direction: column;
-      }
-
-      .content-area {
-        margin-left: 0;
-        max-width: 100%;
-      }
-
-      .fixed-header {
-        left: 0;
-        width: 100%;
-      }
-
-      .table-responsive {
-        overflow-x: auto;
-      }
-    }
-  </style>
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 </head>
+
 
 <body class="bg-gray-100 font-sans">
   <div class="container mx-auto mt-8 p-4">
@@ -117,6 +82,20 @@
             </div>
 
             <button id="new-appointment-btn" class="btn-primary mt-4" onclick="openAppointmentModal()">Create New Appointment</button>
+            <!-- Chat Modal -->
+          <div id="chatModal" class="modal hidden fixed top-0 left-0 w-full h-full flex items-center justify-center bg-black bg-opacity-50">
+            <div class="modal-content bg-white p-6 rounded-lg shadow-lg relative max-w-md w-full">
+                <div class="modal-header font-bold text-lg mb-4 flex justify-between">
+                    <span id="chat-header">Chat</span>
+                    <button class="btn-danger bg-gray-500 text-white px-2 py-1 rounded" onclick="closeChatModal()">X</button>
+                </div>
+                <div id="chat-box" class="chat-box mb-4 p-4 border rounded h-64 overflow-y-auto"></div>
+                <div class="flex">
+                    <input id="chat-input" type="text" placeholder="Type your message..." class="form-control border rounded px-4 py-2 w-full"/>
+                    <button class="btn-primary bg-blue-500 text-white px-4 py-2 ml-2 rounded" onclick="sendMessage()">Send</button>
+                </div>
+            </div>
+          </div>
 
             <h3 class="font-bold mt-8 mb-2">Appointment History</h3>
             <div class="table-responsive">
@@ -303,68 +282,8 @@
     </div>
   </div>
 
-  <script>
-    // Toggle menu
-    function toggleMenu() {
-      const navButtons = document.getElementById('nav-buttons');
-      navButtons.classList.toggle('hidden');
-    }
-
-    // Show section logic
-    function showSection(section) {
-      const sections = document.querySelectorAll('.dashboard-section');
-      sections.forEach(sec => sec.classList.remove('active'));
-      document.getElementById(section).classList.add('active');
-    }
-
-    // Open appointment modal
-    function openAppointmentModal() {
-      document.getElementById('appointmentModal').classList.add('active');
-    }
-
-    // Close appointment modal
-    function closeAppointmentModal() {
-      document.getElementById('appointmentModal').classList.remove('active');
-    }
-
-    // Save new appointment
-    function saveAppointment() {
-      const date = document.getElementById('appointment-date').value;
-      const time = document.getElementById('appointment-time').value;
-      const counselor = document.getElementById('appointment-counselor').value;
-      const type = document.getElementById('appointment-type').value;
-
-      if (date && time && counselor && type) {
-        alert('Appointment Saved!');
-        closeAppointmentModal();
-      } else {
-        alert('Please fill in all fields.');
-      }
-    }
-
-    // Open booking modal
-    function openBookingModal() {
-      document.getElementById('bookingModal').classList.add('active');
-    }
-
-    // Close booking modal
-    function closeBookingModal() {
-      document.getElementById('bookingModal').classList.remove('active');
-    }
-
-    // Book counselor
-    function bookCounselor() {
-      const date = document.getElementById('calendar').value;
-      const time = document.getElementById('time').value;
-
-      if (date && time) {
-        alert('Counselor Booked!');
-        closeBookingModal();
-      } else {
-        alert('Please select a date and time.');
-      }
-    }
-  </script>
+  <script src="assets/js/globals.js">  </script>
+  
 </body>
 
 </html>
