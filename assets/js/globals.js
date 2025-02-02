@@ -13,11 +13,11 @@ const attachFormSubmissionHandlers = () => {
   const adminLoginForm = document.getElementById("adminLoginForm");
 
   if (loginForm) {
-    loginForm.addEventListener("submit", handleFormSubmission("patient_dash.html"));
+    loginForm.addEventListener("submit", handleFormSubmission("../Patient/dashboard.html"));
   }
 
   if (adminLoginForm) {
-    adminLoginForm.addEventListener("submit", handleFormSubmission("dashboard.html"));
+    adminLoginForm.addEventListener("submit", handleFormSubmission("../counsellor/dashboard.html"));
   }
 };
 
