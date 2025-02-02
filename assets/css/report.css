@@ -1,0 +1,16 @@
+.card-details h2{
+    color: blue;
+
+}
+.card-details a{
+    color: red;
+}
+
+.card-details{
+    text-align: center;
+
+}
+.card-details p{
+    font-size: 20px;
+    font-weight: bold;
+}

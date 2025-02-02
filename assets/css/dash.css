@@ -1,0 +1,231 @@
+
+
+  .doc-info {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: black;
+}
+.container-doc-info {
+    width: 80%;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+.title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.cards-doc-info {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+}
+.singlecard-doc-info {
+    background: #fff;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 45%;
+}
+.doctor-info, .surgery-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.doctor-info img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+.rating {
+    color: orange;
+}
+.schedule {
+    background: #f4f4f4;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+ 
+/* timeline for upcoming appointments */
+
+  
+.container-timeline {
+    width: 100%;
+    background: white;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+  }
+
+  .calendar {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+
+  .calendar button {
+    background-color: #1abc9c;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .calendar button:hover {
+    background-color: #16a085;
+  }
+
+  .timeline {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .timeline li {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 20px;
+    padding: 10px;
+    background: #f9f9f9;
+    border-left: 4px solid #1abc9c;
+    border-radius: 5px;
+    position: relative;
+  }
+
+  .timeline li::before {
+    content: '';
+    position: absolute;
+    left: -8px;
+    top: 10px;
+    width: 10px;
+    height: 10px;
+    background: #1abc9c;
+    border-radius: 50%;
+  }
+
+  .timeline li h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+
+  .timeline li p {
+    margin: 5px 0;
+  }
+
+  .details {
+    margin-top: 10px;
+  }
+
+  .details p {
+    margin: 5px 0;
+  }
+
+  .button-group {
+    margin-top: 10px;
+  }
+
+  .button-group button {
+    background-color: #3498db;
+    color: #fff;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    margin-right: 5px;
+    transition: background-color 0.3s ease;
+  }
+
+  .button-group button:hover {
+    background-color: #2980b9;
+  }
+
+  .button-group .cancel {
+    background-color: #e74c3c;
+  }
+
+  .button-group .cancel:hover {
+    background-color: #c0392b;
+  }
+
+  /* .grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, auto);
+    gap: 10px;
+  } */
+  
+  .card-amount, .card-box {
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 8px;
+  }
+  
+  .card-amount {
+    display: flex;
+    justify-content: space-between;
+    background-color: #ffffff;
+    margin: 10px 20px;
+    color: black;
+  }
+  
+  .card-amount-left {
+    flex: 1;
+  }
+  
+  .card-amount-left h2, .card-amount-left p {
+    margin: 10px 0;
+  }
+  
+  .card-amount-right {
+    display: flex;
+    align-items: center;
+  }
+  
+  #top-up-button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  #top-up-button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Responsive design for smaller screens */
+  @media (max-width: 768px) {
+    .grid-container {
+      grid-template-columns: 1fr;
+    }
+    
+    .card-amount {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    
+    .card-amount-right {
+      margin-top: 20px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    #top-up-button {
+      width: 100%;
+      padding: 15px;
+    }
+  }

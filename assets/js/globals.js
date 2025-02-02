@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initializeFlatpickr();
   attachToggleMenuHandler();
   attachChatButtonHandlers();
-  attachChatInputHandler();  // Attach handler for chat input
+  attachChatInputHandler();
 });
 
 // Function to handle form submissions
@@ -13,11 +13,11 @@ const attachFormSubmissionHandlers = () => {
   const adminLoginForm = document.getElementById("adminLoginForm");
 
   if (loginForm) {
-      loginForm.addEventListener("submit", handleFormSubmission("patient_dash.html"));
+    loginForm.addEventListener("submit", handleFormSubmission("patient_dash.html"));
   }
 
   if (adminLoginForm) {
-      adminLoginForm.addEventListener("submit", handleFormSubmission("dashboard.html"));
+    adminLoginForm.addEventListener("submit", handleFormSubmission("dashboard.html"));
   }
 };
 
@@ -29,7 +29,9 @@ const handleFormSubmission = (redirectUrl) => (event) => {
 
 // Function to initialize Flatpickr for date input
 const initializeFlatpickr = () => {
-  flatpickr('#appointment-date', { dateFormat: 'Y-m-d' });
+  if (typeof flatpickr !== 'undefined') {
+    flatpickr('#appointment-date', { dateFormat: 'Y-m-d' });
+  }
 };
 
 // Function to attach the toggle menu handler
@@ -41,18 +43,19 @@ const attachToggleMenuHandler = () => {
 const toggleMenu = () => {
   const navButtons = document.getElementById('nav-buttons');
   if (navButtons) {
-      navButtons.classList.toggle('hidden');
+    navButtons.classList.toggle('hidden');
+    navButtons.classList.toggle('slide-in');
   }
 };
 
 // Function to attach chat button handlers
 const attachChatButtonHandlers = () => {
   document.querySelectorAll('button[onclick^="startChat"]').forEach(button => {
-      button.addEventListener('click', (event) => {
-          event.preventDefault();
-          const counselorName = button.getAttribute('onclick').match(/'(.*)'/)[1];
-          startChat(counselorName);
-      });
+    button.addEventListener('click', (event) => {
+      event.preventDefault();
+      const counselorName = button.getAttribute('onclick').match(/'(.*)'/)[1];
+      startChat(counselorName);
+    });
   });
 };
 
@@ -60,11 +63,11 @@ const attachChatButtonHandlers = () => {
 const startChat = (counselorName) => {
   const chatHeader = document.getElementById('chat-header');
   if (chatHeader) {
-      chatHeader.textContent = `Chat with ${counselorName}`;
+    chatHeader.textContent = `Chat with ${counselorName}`;
   }
   const chatModal = document.getElementById('chatModal');
   if (chatModal) {
-      chatModal.classList.remove('hidden');
+    chatModal.classList.add('active');
   }
 };
 
@@ -72,7 +75,7 @@ const startChat = (counselorName) => {
 const closeChatModal = () => {
   const chatModal = document.getElementById('chatModal');
   if (chatModal) {
-      chatModal.classList.add('hidden');
+    chatModal.classList.remove('active');
   }
 };
 
@@ -80,24 +83,24 @@ const closeChatModal = () => {
 const attachChatInputHandler = () => {
   const chatInput = document.getElementById('chat-input');
   if (chatInput) {
-      chatInput.addEventListener('keypress', (event) => {
-          if (event.key === 'Enter') {
-              sendMessage(event);
-          }
-      });
+    chatInput.addEventListener('keypress', (event) => {
+      if (event.key === 'Enter') {
+        sendMessage(event);
+      }
+    });
   }
 };
 
 // Function to handle sending messages in the chat
 const sendMessage = (event) => {
   if (event) {
-      event.preventDefault();
+    event.preventDefault();
   }
   const message = document.getElementById('chat-input').value;
   if (message) {
-      displayMessage('sent', message);
-      document.getElementById('chat-input').value = ''; // Clear input
-      simulateCounselorResponse();
+    displayMessage('sent', message);
+    document.getElementById('chat-input').value = ''; // Clear input
+    simulateCounselorResponse();
   }
 };
 
@@ -105,18 +108,18 @@ const sendMessage = (event) => {
 const displayMessage = (type, message) => {
   const chatBox = document.getElementById('chat-box');
   if (chatBox) {
-      const newMessage = document.createElement('div');
-      newMessage.classList.add('message', type);
-      newMessage.textContent = message;
-      chatBox.appendChild(newMessage);
-      chatBox.scrollTop = chatBox.scrollHeight; // Scroll to the bottom
+    const newMessage = document.createElement('div');
+    newMessage.classList.add('message', type);
+    newMessage.textContent = message;
+    chatBox.appendChild(newMessage);
+    chatBox.scrollTop = chatBox.scrollHeight; // Scroll to the bottom
   }
 };
 
 // Function to simulate a counselor response in the chat
 const simulateCounselorResponse = () => {
   setTimeout(() => {
-      displayMessage('received', 'Counselor: How are you feeling today?');
+    displayMessage('received', 'Counselor: How are you feeling today?');
   }, 2000); // Counselor responds 2 seconds after user sends a message
 };
 
@@ -145,10 +148,10 @@ const saveAppointment = () => {
   const type = document.getElementById('appointment-type').value;
 
   if (date && time && counselor && type) {
-      alert('Appointment Saved!');
-      closeAppointmentModal();
+    alert('Appointment Saved!');
+    closeAppointmentModal();
   } else {
-      alert('Please fill in all fields.');
+    alert('Please fill in all fields.');
   }
 };
 
@@ -168,9 +171,9 @@ const bookCounselor = () => {
   const time = document.getElementById('time').value;
 
   if (date && time) {
-      alert('Counselor Booked!');
-      closeBookingModal();
+    alert('Counselor Booked!');
+    closeBookingModal();
   } else {
-      alert('Please select a date and time.');
+    alert('Please select a date and time.');
   }
 };

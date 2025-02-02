@@ -1,0 +1,147 @@
+/* patient */
+.calendar-container {
+    max-width: 100%;
+    margin: auto;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow-x: auto;
+}
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding-bottom: 10px;
+}
+.filter-options button {
+    margin: 5px;
+    padding: 10px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: white;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    display: none;
+    table-layout: fixed;
+}
+th, td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+    cursor: pointer;
+    width: 14.28%;
+}
+th {
+    background-color: #f0f0f0;
+}
+.appointment {
+    background-color: #d1ecf1;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 14px;
+}
+.add-button {
+    background-color: #28a745;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.visible {
+    display: table;
+}
+
+.container {
+    width: 90%;
+    max-width: 800px;
+    margin: 20px;
+}
+.heading {
+    text-align: left;
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: black;
+    font-weight: bold;
+}
+
+.notifications {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+@media (min-width: 600px) {
+    .notifications {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+.notification-card {
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    position: relative;
+    padding-left: 60px;
+    
+}
+.notification-card .icon {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 30px;
+    color: #007BFF;
+}
+.notification-card h2 {
+    font-size: 20px;
+    margin: 0 0 10px;
+    color: darkblue;
+    font-weight: bold;
+}
+.notification-card .info {
+    font-size: 14px;
+    color: #555;
+    margin: 0;
+}
+.notification-card .buttons {
+    margin-top: 10px;
+}
+.notification-card .buttons button {
+    margin-right: 10px;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+.notification-card .buttons .detail-btn {
+    background-color: #007BFF;
+    color: #fff;
+}
+.notification-card .buttons .join-btn {
+    background-color: #28A745;
+    color: #fff;
+}
+.notification-card .buttons .cancel-btn {
+    background-color: #DC3545;
+    color: #fff;
+}
+@media (max-width: 768px) {
+    .calendar-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    th, td {
+        padding: 5px;
+    }
+    .filter-options button, .add-button {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 5px;
+    }
+}

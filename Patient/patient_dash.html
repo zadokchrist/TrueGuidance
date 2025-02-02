@@ -5,10 +5,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Patient Dashboard</title>
-  <link rel="stylesheet" href="assets/css/globals.css">
+  <link rel="stylesheet" href="../assets/css/globals.css">
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/1.7.3/tailwind.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 </head>
 
@@ -18,15 +19,25 @@
     <div class="dashboard-layout flex flex-col lg:flex-row gap-4">
 
       <!-- Navigation -->
-      <nav class="dashboard-navigation bg-cover bg-center p-4 opacity-90 z-10 lg:fixed lg:top-0 lg:left-0 lg:w-72 lg:h-full lg:opacity-100" style="background-image: url('https://images3.alphacoders.com/132/1323579.png');">
+     <nav class="dashboard-navigation bg-cover bg-center p-4 opacity-90 z-10 lg:fixed lg:top-0 lg:left-0 lg:w-72 lg:h-full lg:opacity-100" style="background-image: url('https://images3.alphacoders.com/132/1323579.png');">
         <h1 class="text-white text-xl font-bold mb-4">TrueGuidanceHub</h1>
         <button class="lg:hidden text-white font-bold mb-2" onclick="toggleMenu()">Menu</button>
         <div id="nav-buttons" class="hidden lg:block">
-          <button class="active text-white font-bold mb-2" onclick="showSection('appointments')">Your Appointments</button>
-          <button class="text-white font-bold mb-2" onclick="showSection('counseling-reports')">Counseling Reports</button>
-          <button class="text-white font-bold mb-2" onclick="showSection('payments')">Your Payments</button>
-          <button class="text-white font-bold mb-2" onclick="showSection('available-counselors')">Available Counselors</button>
-          <button class="text-white font-bold mb-2" onclick="showSection('user-profile')">User Profile</button>
+          <button class="active text-white font-bold mb-2" onclick="showSection('appointments')">
+            <i class="fas fa-calendar-alt"></i> Your Appointments
+          </button>
+          <button class="text-white font-bold mb-2" onclick="showSection('counseling-reports')">
+            <i class="fas fa-file-alt"></i> Counseling Reports
+          </button>
+          <button class="text-white font-bold mb-2" onclick="showSection('payments')">
+            <i class="fas fa-dollar-sign"></i> Your Payments
+          </button>
+          <button class="text-white font-bold mb-2" onclick="showSection('available-counselors')">
+            <i class="fas fa-user-md"></i> Available Counselors
+          </button>
+          <button class="text-white font-bold mb-2" onclick="showSection('user-profile')">
+            <i class="fas fa-user"></i> User Profile
+          </button>
         </div>
       </nav>
 
@@ -42,24 +53,36 @@
             </div>
           </div>
         </div>
-        <div class="mt-20 lg:mt-24">
+        </div>
+        </div>
+       <!-- Content -->
+      <div class="content-area">
+        <!-- Appointment Management -->
+        <section id="appointments" class="dashboard-section active">
+          <!-- Welcome Card -->
+          <div class="welcome-card mb-6">
+            <h2 class="text-2xl font-bold mb-2">Welcome, [Patient's Name]!</h2>
+            <p class="mb-4">We are glad to have you here. Here are your upcoming appointments:</p>
+            <ul class="list-disc list-inside">
+              <li class="mb-2">Feb 1, 10:00 AM with Dr. Smith - Room 101</li>
+              <li class="mb-2">Feb 3, 2:00 PM with Dr. Adams - Room 202</li>
+            </ul>
+          </div>
 
-          <!-- Appointment Management -->
-          <section id="appointments" class="dashboard-section active">
-            <h2 class="text-2xl font-bold mb-4">Your Appointments</h2>
-            <h3 class="font-bold mb-2">Upcoming Appointments</h3>
-            <div class="table-responsive">
-              <table class="w-full border-collapse">
-                <thead>
-                  <tr>
-                    <th class="border px-4 py-2">Date</th>
-                    <th class="border px-4 py-2">Time</th>
-                    <th class="border px-4 py-2">Counselor/Doctor</th>
-                    <th class="border px-4 py-2">Location</th>
-                    <th class="border px-4 py-2">Status</th>
-                    <th class="border px-4 py-2">Chat</th>
-                  </tr>
-                </thead>
+          <h2 class="text-2xl font-bold mb-4">Your Appointments</h2>
+          <h3 class="font-bold mb-2">Upcoming Appointments</h3>
+          <div class="table-responsive">
+            <table class="w-full border-collapse">
+              <thead>
+                <tr>
+                  <th class="border px-4 py-2">Date</th>
+                  <th class="border px-4 py-2">Time</th>
+                  <th class="border px-4 py-2">Counselor/Doctor</th>
+                  <th class="border px-4 py-2">Location</th>
+                  <th class="border px-4 py-2">Status</th>
+                  <th class="border px-4 py-2">Chat</th>
+                </tr>
+              </thead>
                 <tbody>
                   <tr>
                     <td class="border px-4 py-2">Feb 1</td>
@@ -282,7 +305,7 @@
     </div>
   </div>
 
-  <script src="assets/js/globals.js">  </script>
+  <script src="../assets/js/globals.js">  </script>
   
 </body>
 
